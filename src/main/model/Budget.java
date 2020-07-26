@@ -10,10 +10,52 @@ public class Budget {
     private double miscellaneous;
     private double budget;
     private double totalExpenses;
+    private double balance;
 
     public Budget(String month, double budget) {
         this.month = month;
         this.budget = budget;
+    }
+
+    public void setMonth(String month1) {
+        month = month1;
+    }
+
+    public void setBudget(double budget1) {
+        budget = budget1;
+    }
+
+    public void setLivingExpenses(double livingExpenses1) {
+        livingExpenses = livingExpenses1;
+    }
+
+    public void setGroceries(double groceries1) {
+        groceries = groceries1;
+    }
+
+    public void setRestaurants(double restaurants1) {
+        restaurants = restaurants1;
+    }
+
+    public void setTransportation(double transportation1) {
+        transportation = transportation1;
+    }
+
+    public void setEntertainment(double entertainment1) {
+        entertainment = entertainment1;
+    }
+
+    public void setMiscellaneous(double miscellaneous1) {
+        miscellaneous = miscellaneous1;
+    }
+
+    public void setTotalExpenses() {
+        totalExpenses = getEntertainment() + getGroceries() + getLivingExpenses() + getMiscellaneous()
+                + getRestaurants() + getTransportation();
+    }
+
+    public void setBalance() {
+        balance = budget - totalExpenses;
     }
 
     public String getMonth() {
@@ -52,40 +94,7 @@ public class Budget {
         return totalExpenses;
     }
 
-    public void setMonth(String month1) {
-        month = month1;
-    }
-
-    public void setBudget(double budget1) {
-        budget = budget1;
-    }
-
-    public void setLivingExpenses(double livingExpenses1) {
-        livingExpenses = livingExpenses1;
-    }
-
-    public void setGroceries(double groceries1) {
-        groceries = groceries1;
-    }
-
-    public void setRestaurants(double restaurants1) {
-        restaurants = restaurants1;
-    }
-
-    public void setTransportation(double transportation1) {
-        transportation = transportation1;
-    }
-
-    public void setEntertainment(double entertainment1) {
-        entertainment = entertainment1;
-    }
-
-    public void setMiscellaneous(double miscellaneous1) {
-        miscellaneous = miscellaneous1;
-    }
-
-    public void setTotalExpenses() {
-        totalExpenses = getEntertainment() + getGroceries() + getLivingExpenses() + getMiscellaneous()
-                + getRestaurants() + getTransportation();
+    public double getBalance() {
+        return balance;
     }
 }
