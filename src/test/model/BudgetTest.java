@@ -10,15 +10,16 @@ class BudgetTest {
     Budget february;
     Budget march;
     Budget april;
+    Budget test;
 
     @BeforeEach
     void runBefore() {
-        january = new Budget("january", 0);
+        january = new Budget("January", 0);
         january.setLivingExpenses(500);
         january.setGroceries(300);
         january.setTotalExpenses();
         january.setBalance();
-        february = new Budget("february", 1000);
+        february = new Budget("February", 1000);
         february.setLivingExpenses(500);
         february.setGroceries(300);
         february.setRestaurants(0);
@@ -27,16 +28,31 @@ class BudgetTest {
         february.setMiscellaneous(0);
         february.setTotalExpenses();
         february.setBalance();
-        march = new Budget("march", 2500);
-        april = new Budget("april", 10000);
+        march = new Budget("March", 2500);
+        april = new Budget("April", 10000);
+        test = new Budget("test",500);
     }
 
     @Test
     void testGetMonth() {
-        assertEquals("january", january.getMonth());
-        assertEquals("february", february.getMonth());
-        assertEquals("march", march.getMonth());
-        assertEquals("april", april.getMonth());
+        assertEquals("January", january.getMonth());
+        assertEquals("February", february.getMonth());
+        assertEquals("March", march.getMonth());
+        assertEquals("April", april.getMonth());
+    }
+
+    @Test
+    void testSetBudget() {
+        assertEquals(500,test.getBudget());
+        test.setBudget(600);
+        assertEquals(600,test.getBudget());
+    }
+
+    @Test
+    void testSetMonth() {
+        assertEquals("test",test.getMonth());
+        test.setMonth("December");
+        assertEquals("December",test.getMonth());
     }
 
     @Test
