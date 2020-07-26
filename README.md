@@ -23,8 +23,7 @@ averaging and budget management.
 - For people of all ages regardless of experience
 - Easy frugal / minimalism lifestyle!
 
-//
-
+##User Stories
 As a user, I want to be able to input certain expenses and label them accordingly <br>
 As a user, I want to be able to categorize the type of expense and view the overall total cost <br>
 As a user, I want to be able to see the difference between my salary and expenses, in numerical and percentage form <br>
