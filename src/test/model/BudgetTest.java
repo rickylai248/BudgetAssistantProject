@@ -30,7 +30,7 @@ class BudgetTest {
         february.setBalance();
         march = new Budget("March", 2500);
         april = new Budget("April", 10000);
-        test = new Budget("test",500);
+        test = new Budget("test", 500);
     }
 
     @Test
@@ -43,16 +43,16 @@ class BudgetTest {
 
     @Test
     void testSetBudget() {
-        assertEquals(500,test.getBudget());
+        assertEquals(500, test.getBudget());
         test.setBudget(600);
-        assertEquals(600,test.getBudget());
+        assertEquals(600, test.getBudget());
     }
 
     @Test
     void testSetMonth() {
-        assertEquals("test",test.getMonth());
+        assertEquals("test", test.getMonth());
         test.setMonth("December");
-        assertEquals("December",test.getMonth());
+        assertEquals("December", test.getMonth());
     }
 
     @Test
