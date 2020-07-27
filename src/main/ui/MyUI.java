@@ -36,6 +36,7 @@ public class MyUI {
         }
     }
 
+    //Separated runUI into three parts due to the line checkstyle constraint
     public void runUI2() {
         System.out.println("Please enter your Living Expenses for " + value1);
         value = scanner.nextDouble();

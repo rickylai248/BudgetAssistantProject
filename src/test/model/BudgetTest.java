@@ -116,6 +116,6 @@ class BudgetTest {
         january.overBudget();
         assertEquals(true, january.getOverBalance());
         february.overBudget();
-        assertEquals(false,february.getOverBalance());
+        assertEquals(false, february.getOverBalance());
     }
 }
