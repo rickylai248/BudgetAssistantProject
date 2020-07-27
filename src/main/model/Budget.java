@@ -14,7 +14,9 @@ public class Budget {
     private double totalExpenses;
     private double balance;
     private boolean overBalance;
+    private double balancePercent;
 
+    // REQUIRES: month has a non-zero length
     // EFFECTS: constructs a monthly budget with given month name and budget amount
     public Budget(String month, double budget) {
         this.month = month;
@@ -82,6 +84,14 @@ public class Budget {
         balance = budget - totalExpenses;
     }
 
+    // REQUIRES: budget > 0
+    // MODIFIES: this
+    // EFFECTS: divides the input total expenses by budget then multiply by 100 to get the percentage spent on budget
+    public void setBalancePercent() {
+        balancePercent = totalExpenses / budget;
+        balancePercent *= 100;
+    }
+
     // EFFECTS: returns entered month
     public String getMonth() {
         return month;
@@ -132,16 +142,22 @@ public class Budget {
         return balance;
     }
 
+    // EFFECTS: returns the percentage spent of total expenses by the budget
+    public double getBalancePercent() {
+        return balancePercent;
+    }
+
     // EFFECTS: if the balance is in the negative then
     // print statement where they are going over monthly budget by balance
     // else they are not over budget, and are told to keep it up! Excess budget/income by balance()
     public void overBudget() {
         if (getBalance() < 0) {
-            System.out.println("You are going over your monthly budget by $" + getBalance() + "!");
+            System.out.println("You are going over your monthly budget by $" + getBalance() + "! ("
+                    + getBalancePercent() + "% Spent)");
             overBalance = true;
         } else {
             System.out.println("Keep it up! You are over your total expenses by $"
-                    + getBalance());
+                    + getBalance() + " (" + getBalancePercent() + "% Spent)");
             overBalance = false;
         }
     }
@@ -150,4 +166,5 @@ public class Budget {
     public boolean getOverBalance() {
         return overBalance;
     }
+
 }

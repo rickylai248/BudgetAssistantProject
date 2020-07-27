@@ -28,7 +28,9 @@ class BudgetTest {
         february.setMiscellaneous(0);
         february.setTotalExpenses();
         february.setBalance();
+        february.setBalancePercent();
         march = new Budget("March", 2500);
+        march.setBalancePercent();
         april = new Budget("April", 10000);
         test = new Budget("test", 500);
     }
@@ -109,6 +111,12 @@ class BudgetTest {
     void testGetBalance() {
         assertEquals(-800, january.getBalance());
         assertEquals(100, february.getBalance());
+    }
+
+    @Test
+    void testGetBalancePercent() {
+        assertEquals(90, february.getBalancePercent());
+        assertEquals(0, march.getBalancePercent());
     }
 
     @Test

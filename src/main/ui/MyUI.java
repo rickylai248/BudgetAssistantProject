@@ -74,6 +74,7 @@ public class MyUI {
 
         budget.setTotalExpenses();
         budget.setBalance();
+        budget.setBalancePercent();
 
         budget.overBudget();
     }
