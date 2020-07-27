@@ -74,12 +74,7 @@ public class MyUI {
         budget.setTotalExpenses();
         budget.setBalance();
 
-        if (budget.getBalance() < 0) {
-            System.out.println("You are going over your monthly budget by $" + budget.getBalance());
-        } else {
-            System.out.println("Keep it up! You are over your total expenses by $"
-                    + budget.getBalance());
-        }
+        budget.overBudget();
     }
 
 }

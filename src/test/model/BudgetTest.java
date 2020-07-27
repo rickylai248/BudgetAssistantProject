@@ -110,4 +110,12 @@ class BudgetTest {
         assertEquals(-800, january.getBalance());
         assertEquals(100, february.getBalance());
     }
+
+    @Test
+    void testOverBudget() {
+        january.overBudget();
+        assertEquals(true, january.getOverBalance());
+        february.overBudget();
+        assertEquals(false,february.getOverBalance());
+    }
 }

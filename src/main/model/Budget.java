@@ -1,5 +1,7 @@
 package model;
 
+import ui.MyUI;
+
 public class Budget {
     private String month;
     private double livingExpenses;
@@ -11,6 +13,7 @@ public class Budget {
     private double budget;
     private double totalExpenses;
     private double balance;
+    private boolean overBalance;
 
     public Budget(String month, double budget) {
         this.month = month;
@@ -96,5 +99,20 @@ public class Budget {
 
     public double getBalance() {
         return balance;
+    }
+
+    public void overBudget() {
+        if (getBalance() < 0) {
+            System.out.println("You are going over your monthly budget by $" + getBalance() + "!");
+            overBalance = true;
+        } else {
+            System.out.println("Keep it up! You are over your total expenses by $"
+                    + getBalance());
+            overBalance = false;
+        }
+    }
+
+    public boolean getOverBalance() {
+        return overBalance;
     }
 }
