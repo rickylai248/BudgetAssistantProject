@@ -32,6 +32,10 @@ class BudgetTest {
         march = new Budget("March", 2500);
         march.setBalancePercent();
         april = new Budget("April", 10000);
+        april.setLivingExpenses(10000);
+        april.setTotalExpenses();
+        april.setBalance();
+        april.setBalancePercent();
         test = new Budget("test", 500);
     }
 
@@ -69,6 +73,7 @@ class BudgetTest {
     void testGetLivingExpenses() {
         assertEquals(500, january.getLivingExpenses());
         assertEquals(500, february.getLivingExpenses());
+        assertEquals(10000, april.getLivingExpenses());
     }
 
     @Test
@@ -105,18 +110,21 @@ class BudgetTest {
     void testGetTotalExpenses() {
         assertEquals(800, january.getTotalExpenses());
         assertEquals(900, february.getTotalExpenses());
+        assertEquals(10000, april.getTotalExpenses());
     }
 
     @Test
     void testGetBalance() {
         assertEquals(-800, january.getBalance());
         assertEquals(100, february.getBalance());
+        assertEquals(0, april.getBalance());
     }
 
     @Test
     void testGetBalancePercent() {
         assertEquals(90, february.getBalancePercent());
         assertEquals(0, march.getBalancePercent());
+        assertEquals(100, april.getBalancePercent());
     }
 
     @Test
@@ -125,5 +133,7 @@ class BudgetTest {
         assertEquals(true, january.getOverBalance());
         february.overBudget();
         assertEquals(false, february.getOverBalance());
+        april.overBudget();
+        assertEquals(false, april.getOverBalance());
     }
 }

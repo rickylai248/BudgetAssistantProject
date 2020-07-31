@@ -155,9 +155,13 @@ public class Budget {
             System.out.println("You are going over your monthly budget by $" + getBalance() + "! ("
                     + getBalancePercent() + "% Spent)");
             overBalance = true;
-        } else {
-            System.out.println("Keep it up! You are over your total expenses by $"
+        } else if (getBalance() > 0) {
+            System.out.println("Keep it up! You are in the green for your total expenses by $"
                     + getBalance() + " (" + getBalancePercent() + "% Spent)");
+            overBalance = false;
+        } else {
+            System.out.println("Your budget perfectly fits your current expense of " + getBalance()
+                    + " ! Still in the clear (" + getBalancePercent() + "% Spent)");
             overBalance = false;
         }
     }
