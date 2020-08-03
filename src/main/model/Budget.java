@@ -26,28 +26,6 @@ public class Budget implements Serializable {
         this.budget = budget;
     }
 
-    /*
-     * REQUIRES: month has a non-zero length
-     * EFFECTS: constructs a monthly budget with given month name, budget amount, and amount spent per category
-     * NOTE: this constructor is to be used only when constructing
-     * an account from data stored in file
-     */
-/*    public Budget(String month, double budget, double balance, double livingExpenses, double groceries,
-                  double restaurants, double transportation, double entertainment, double miscellaneous,
-                  double totalExpenses, double balancePercent) {
-        this.month = month;
-        this.budget = budget;
-        this.balance = balance;
-        this.livingExpenses = livingExpenses;
-        this.groceries = groceries;
-        this.restaurants = restaurants;
-        this.transportation = transportation;
-        this.entertainment = entertainment;
-        this.miscellaneous = miscellaneous;
-        this.totalExpenses = totalExpenses;
-        this.balancePercent = balancePercent;
-    }*/
-
     // MODIFIES: this
     // EFFECTS: sets input to the month of provided budget
     public void setMonth(String month1) {
@@ -210,7 +188,28 @@ public class Budget implements Serializable {
         System.out.println("Miscellaneous Expenses: $" + getMiscellaneous());
         System.out.println("- End -");
     }
-
+//STUBS
+    /*
+     * REQUIRES: month has a non-zero length
+     * EFFECTS: constructs a monthly budget with given month name, budget amount, and amount spent per category
+     * NOTE: this constructor is to be used only when constructing
+     * an account from data stored in file
+     */
+/*    public Budget(String month, double budget, double balance, double livingExpenses, double groceries,
+                  double restaurants, double transportation, double entertainment, double miscellaneous,
+                  double totalExpenses, double balancePercent) {
+        this.month = month;
+        this.budget = budget;
+        this.balance = balance;
+        this.livingExpenses = livingExpenses;
+        this.groceries = groceries;
+        this.restaurants = restaurants;
+        this.transportation = transportation;
+        this.entertainment = entertainment;
+        this.miscellaneous = miscellaneous;
+        this.totalExpenses = totalExpenses;
+        this.balancePercent = balancePercent;
+    }*/
 /*    @Override
     public void save(PrintWriter printWriter) {
         printWriter.print(nextAccountId);
