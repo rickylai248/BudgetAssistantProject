@@ -1,15 +1,14 @@
-/*package persistence;
+/*
+package persistence;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-// STUB FROM ACCOUNT NOT ROBUST TELLER APP STARTER
-
 // A writer that can write account data to a file
-public class writer {
-private PrintWriter printWriter;
+public class Writer {
+    private PrintWriter printWriter;
 
     // EFFECTS: constructs a writer that will write data to file
     public Writer(File file) throws FileNotFoundException, UnsupportedEncodingException {
@@ -28,4 +27,5 @@ private PrintWriter printWriter;
     public void close() {
         printWriter.close();
     }
-}*/
+}
+*/

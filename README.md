@@ -24,8 +24,12 @@ averaging and budget management.
 - Easy frugal / minimalism lifestyle!
 
 ##User Stories
+As a user, I want to be able to track my budget by inputting expenses and my monthly allowance <br>
 As a user, I want to be able to input certain expenses and label them accordingly <br>
 As a user, I want to be able to categorize the type of expense and view the overall total cost <br>
 As a user, I want to be able to see the difference between my salary and expenses, in numerical and percentage form <br>
 As a user, I want to be able to print/download my imported expenses and earnings report <br>
+As a user, I want to be able to save my budget list file <br>
+As a user, I want to be able to easily open up a saved budget file <br>
+As a user, I want to be able to download my inputted expenses and earnings report <br>
 As a user, I want to be able to visualize my expenses with colour and imagery <br>
