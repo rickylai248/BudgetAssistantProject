@@ -4,18 +4,21 @@ import java.io.*;
 import java.util.ArrayList;
 
 import model.Budget;
+import model.BudgetList;
 
 import java.util.Scanner;
 
 // Budget application
 public class MyUI {
     private ArrayList<Budget> budgetLog;
+    private static final String Budget_File = "./data/Budget.txt";
     private Scanner scanner;
     double value = 0;
     String month = "";
     String value2 = "";
     String value3 = "";
     Budget budget = new Budget(month, value);
+    BudgetList budgetList = new BudgetList();
 
     // EFFECTS: runs the budget assistant application
     public MyUI() throws IOException, ClassNotFoundException {
@@ -38,7 +41,8 @@ public class MyUI {
             System.out.println("\tl -> load previous budget");
             value2 = scanner.next();
             if (value2.equals("l")) {
-                ObjectInputStream in = new ObjectInputStream(new FileInputStream("./data/Budget.txt"));
+                ObjectInputStream in = new ObjectInputStream(new FileInputStream(Budget_File));
+                //BudgetList budgetArrayList = BudgetList in.readObject();
                 ArrayList<Budget> budgetArrayList = (ArrayList<Budget>) in.readObject();
                 for (Budget budget1 : budgetArrayList) {
                     System.out.println("Month : " + budget1.getMonth());
@@ -46,7 +50,7 @@ public class MyUI {
                 }
             } else {
                 value3 = scanner.nextLine();
-                System.out.println("Please enter the month");
+                System.out.println("Please enter the month.");
                 month = scanner.nextLine();
                 budget.setMonth(month);
 
@@ -58,13 +62,13 @@ public class MyUI {
 
     //Separated runUI into three parts due to the line checkstyle constraint
     public void runUI2() throws IOException {
-        System.out.println("Please enter your monthly budget");
+        System.out.println("Please enter your monthly budget.");
         value = scanner.nextDouble();
 
         System.out.println("Your budget for " + month + " is $ " + value);
         budget.setBudget(value);
 
-        System.out.println("Please enter your Living Expenses for " + month + " (e.g. Rent, Insurance)");
+        System.out.println("Please enter your Living Expenses for " + month + " (e.g. Rent, Insurance).");
         value = scanner.nextDouble();
 
         System.out.println("Your Living Expenses this month is $ " + value);
@@ -108,7 +112,8 @@ public class MyUI {
 
         budget.overBudget();
 
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("./data/Budget.txt"));
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(Budget_File));
+        //budgetList.addBudget(budget);
         budgetLog.add(budget);
         out.writeObject(budgetLog);
     }
