@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import javax.swing.*;
 import javax.sound.sampled.*;
+import javax.swing.table.DefaultTableModel;
 
 import javafx.scene.input.InputMethodTextRun;
 import model.Budget;
@@ -20,6 +21,7 @@ import sun.audio.AudioStream;
 public abstract class MyUI implements ActionListener {
     ArrayList<Budget> budgetLog = new ArrayList<>();
     private static final String Budget_File = "./data/Budget.txt";
+    private static final String BudgetGui_File = "./data/BudgetGui.txt";
     private static final String Music_File = "./data/Chimes.wav";
     private Scanner scanner;
     double value = 0;
@@ -28,6 +30,8 @@ public abstract class MyUI implements ActionListener {
     String value3 = "";
     Budget budget = new Budget(month, value);
     BudgetList budgetList;
+    private JFrame frame;
+    private JLabel monthHere1;
 
     // EFFECTS: runs the budget assistant application
     public MyUI() throws IOException, ClassNotFoundException {
@@ -130,7 +134,7 @@ public abstract class MyUI implements ActionListener {
     }
 
     public void gui() {
-        JFrame frame = new JFrame();
+        this.frame = new JFrame();
         frame.setSize(1000, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
@@ -138,6 +142,10 @@ public abstract class MyUI implements ActionListener {
 
         panel.setLayout(null);
 
+        DefaultListModel<Budget> budgetModel = new DefaultListModel<>();
+
+        JList<Budget> budgetJList = new JList<>(budgetModel);
+        budgetJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JLabel monthHere = new JLabel("Enter Month Here");
         monthHere.setBounds(10, 25, 160, 30);
         panel.add(monthHere);
@@ -210,11 +218,44 @@ public abstract class MyUI implements ActionListener {
         panel.add(userText7);
         String setMisc = userText.getText();
 
+        String monthEntered = userText.getText();
+        this.monthHere1 = new JLabel("Month: ");
+        this.monthHere1.setBounds(400, 25, 160, 30);
+        panel.add(this.monthHere1);
+
+        JLabel budgetHere1 = new JLabel("Budget: ");
+        budgetHere1.setBounds(400, 50, 160, 30);
+        panel.add(budgetHere1);
+
+        JLabel livingExpensesHere1 = new JLabel("Living Expenses: ");
+        livingExpensesHere1.setBounds(400, 70, 160, 30);
+        panel.add(livingExpensesHere1);
+
+        JLabel groceryExpensesHere1 = new JLabel("Grocery Expenses: ");
+        groceryExpensesHere1.setBounds(400, 90, 160, 30);
+        panel.add(groceryExpensesHere1);
+
+        JLabel restaurantExpensesHere1 = new JLabel("Restaurant Expenses: ");
+        restaurantExpensesHere1.setBounds(400, 110, 160, 30);
+        panel.add(restaurantExpensesHere1);
+
+        JLabel transportationExpensesHere1 = new JLabel("Transportation Expenses: ");
+        transportationExpensesHere1.setBounds(400, 130, 160, 30);
+        panel.add(transportationExpensesHere1);
+
+        JLabel entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: ");
+        entertainmentExpensesHere1.setBounds(400, 150, 160, 30);
+        panel.add(entertainmentExpensesHere1);
+
+        JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: ");
+        additionalExpensesHere1.setBounds(400, 170, 160, 30);
+        panel.add(additionalExpensesHere1);
         JButton button = new JButton(new AbstractAction("Submit") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     budget.setMonth(setMonth);
+                    monthHere1.setText("Month: " + monthEntered);
                     budget.setBudget(parseDouble(setBudget));
                     budget.setLivingExpenses(parseDouble(setLiving));
                     budget.setGroceries(parseDouble(setGrocery));
@@ -250,7 +291,14 @@ public abstract class MyUI implements ActionListener {
         JButton save = new JButton(new AbstractAction("Save") {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
+                    ObjectOutputStream outObject = new ObjectOutputStream(outFile);
+                    outObject.writeObject(budgetJList);
+                    outObject.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         }
         );
@@ -261,7 +309,21 @@ public abstract class MyUI implements ActionListener {
         JButton load = new JButton(new AbstractAction("Load") {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    FileInputStream inFile = new FileInputStream(BudgetGui_File);
+                    ObjectInputStream is = new ObjectInputStream(inFile);
+                    JList inList = (JList) is.readObject();
+                    ListModel inModel = inList.getModel();
+                    for (int i = 0; i < inModel.getSize(); i++) {
+                        budgetModel.addElement((Budget) inModel.getElementAt(i));
+                    }
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                } catch (ClassNotFoundException classNotFoundException) {
+                    classNotFoundException.printStackTrace();
+                }
             }
         }
         );
@@ -269,38 +331,6 @@ public abstract class MyUI implements ActionListener {
         panel.add(load);
         load.addActionListener(this);
 
-        String monthEntered = userText.getText();
-        JLabel monthHere1 = new JLabel("Month: " + monthEntered);
-        monthHere1.setBounds(400, 25, 160, 30);
-        panel.add(monthHere1);
-
-        JLabel budgetHere1 = new JLabel("Budget: ");
-        budgetHere1.setBounds(400, 50, 160, 30);
-        panel.add(budgetHere1);
-
-        JLabel livingExpensesHere1 = new JLabel("Living Expenses: ");
-        livingExpensesHere1.setBounds(400, 70, 160, 30);
-        panel.add(livingExpensesHere1);
-
-        JLabel groceryExpensesHere1 = new JLabel("Grocery Expenses: ");
-        groceryExpensesHere1.setBounds(400, 90, 160, 30);
-        panel.add(groceryExpensesHere1);
-
-        JLabel restaurantExpensesHere1 = new JLabel("Restaurant Expenses: ");
-        restaurantExpensesHere1.setBounds(400, 110, 160, 30);
-        panel.add(restaurantExpensesHere1);
-
-        JLabel transportationExpensesHere1 = new JLabel("Transportation Expenses: ");
-        transportationExpensesHere1.setBounds(400, 130, 160, 30);
-        panel.add(transportationExpensesHere1);
-
-        JLabel entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: ");
-        entertainmentExpensesHere1.setBounds(400, 150, 160, 30);
-        panel.add(entertainmentExpensesHere1);
-
-        JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: ");
-        additionalExpensesHere1.setBounds(400, 170, 160, 30);
-        panel.add(additionalExpensesHere1);
 
         frame.setTitle("Budget Assistant");
         frame.setVisible(true);
@@ -324,7 +354,6 @@ public abstract class MyUI implements ActionListener {
         AudioStream audios = new AudioStream(music);
         AudioPlayer.player.start(audios);
     }
-
     /*    @Override
     public void actionPerformed(ActionEvent e) {
         //InputMethodTextRun monthText = null;
