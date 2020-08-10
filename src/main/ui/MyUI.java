@@ -41,6 +41,26 @@ public abstract class MyUI implements ActionListener {
     private JTextField userText5;
     private JTextField userText6;
     private JTextField userText7;
+    private JLabel budgetAssistant;
+    private JButton save;
+    private JButton load;
+    String setMonth;
+    double setBudget;
+    double setLiving;
+    double setGrocery;
+    double setRest;
+    double setTrans;
+    double setEntertainment;
+    double setMisc;
+    JLabel budgetHere1;
+    JLabel livingExpensesHere1;
+    JLabel groceryExpensesHere1;
+    JLabel restaurantExpensesHere1;
+    JLabel transportationExpensesHere1;
+    JLabel entertainmentExpensesHere1;
+    JLabel additionalExpensesHere1;
+    JLabel percentage;
+    JButton button;
 
     // EFFECTS: runs the budget assistant application
     public MyUI() throws IOException, ClassNotFoundException {
@@ -142,11 +162,12 @@ public abstract class MyUI implements ActionListener {
         budgetLog.add(budget);
     }
 
+    // GUI method, split into multiple methods due to checkstyle line constraint
     public void gui() {
-        this.frame = new JFrame();
+        frame = new JFrame();
         frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.panel = new JPanel();
+        panel = new JPanel();
         frame.add(panel);
 
         panel.setLayout(null);
@@ -167,6 +188,10 @@ public abstract class MyUI implements ActionListener {
         livingExpensesHere.setBounds(10, 70, 160, 30);
         panel.add(livingExpensesHere);
 
+        gui2();
+    }
+
+    public void gui2() {
         JLabel groceryExpensesHere = new JLabel("Enter Grocery Expenses Here");
         groceryExpensesHere.setBounds(10, 90, 170, 30);
         panel.add(groceryExpensesHere);
@@ -187,21 +212,26 @@ public abstract class MyUI implements ActionListener {
         additionalExpensesHere.setBounds(10, 170, 215, 30);
         panel.add(additionalExpensesHere);
 
-        JLabel budgetAssistant = new JLabel("Budget Assistant");
+        budgetAssistant = new JLabel("Budget Assistant");
         budgetAssistant.setBounds(10, 180, 1000, 30);
         budgetAssistant.setSize(600, 250);
         budgetAssistant.setFont(new Font("Verdana", Font.PLAIN, 45));
+
+        gui3();
+    }
+
+    public void gui3() {
         panel.add(budgetAssistant);
 
         userText = new JTextField(20);
         userText.setBounds(230, 25, 190, 30);
         panel.add(userText);
-        String setMonth = userText.getText();
+        setMonth = userText.getText();
 
         userText1 = new JTextField(20);
         userText1.setBounds(230, 45, 190, 30);
         panel.add(userText1);
-        double setBudget = parseDouble(userText1.getText());
+        setBudget = parseDouble(userText1.getText());
 
         userText2 = new JTextField(20);
         userText2.setBounds(230, 65, 190, 30);
@@ -217,7 +247,10 @@ public abstract class MyUI implements ActionListener {
         userText4.setBounds(230, 105, 190, 30);
         panel.add(userText4);
 
+        gui4();
+    }
 
+    public void gui4() {
         userText5 = new JTextField(20);
         userText5.setBounds(230, 125, 190, 30);
         panel.add(userText5);
@@ -235,81 +268,58 @@ public abstract class MyUI implements ActionListener {
         monthHere1.setBounds(430, 25, 160, 30);
         panel.add(monthHere1);
 
-        JLabel budgetHere1 = new JLabel("Budget Amount: $");
+        budgetHere1 = new JLabel("Budget Amount: $");
         budgetHere1.setBounds(430, 50, 160, 30);
         panel.add(budgetHere1);
 
-        JLabel livingExpensesHere1 = new JLabel("Living Expenses: $");
+        livingExpensesHere1 = new JLabel("Living Expenses: $");
         livingExpensesHere1.setBounds(430, 70, 160, 30);
         panel.add(livingExpensesHere1);
 
-        JLabel groceryExpensesHere1 = new JLabel("Grocery Expenses: $");
+        gui5();
+    }
+
+    public void gui5() {
+        groceryExpensesHere1 = new JLabel("Grocery Expenses: $");
         groceryExpensesHere1.setBounds(430, 90, 160, 30);
         panel.add(groceryExpensesHere1);
 
-        JLabel restaurantExpensesHere1 = new JLabel("Restaurant Expenses: $");
+        restaurantExpensesHere1 = new JLabel("Restaurant Expenses: $");
         restaurantExpensesHere1.setBounds(430, 110, 160, 30);
         panel.add(restaurantExpensesHere1);
 
-        JLabel transportationExpensesHere1 = new JLabel("Transportation Expenses: $");
+        transportationExpensesHere1 = new JLabel("Transportation Expenses: $");
         transportationExpensesHere1.setBounds(430, 130, 240, 30);
         panel.add(transportationExpensesHere1);
 
-        JLabel entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: $");
+        entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: $");
         entertainmentExpensesHere1.setBounds(430, 150, 240, 30);
         panel.add(entertainmentExpensesHere1);
 
-        JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: $");
+        additionalExpensesHere1 = new JLabel("Additional Expenses: $");
         additionalExpensesHere1.setBounds(430, 170, 240, 30);
         panel.add(additionalExpensesHere1);
 
-        JLabel percentage = new JLabel("Percent Spent: %");
+        percentage = new JLabel("Percent Spent: %");
         percentage.setBounds(430, 190, 240, 30);
         panel.add(percentage);
 
-        JButton button = new JButton(new AbstractAction("Submit") {
+        gui6();
+    }
+
+    public void gui6() {
+        button = new JButton(new AbstractAction("Submit") {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setBudget = parseDouble(userText1.getText());
+                setLiving = parseDouble(userText2.getText());
+                setGrocery = parseDouble(userText3.getText());
+                setRest = parseDouble(userText4.getText());
+                setTrans = parseDouble(userText5.getText());
+                setEntertainment = parseDouble(userText6.getText());
+                setMisc = parseDouble(userText7.getText());
                 try {
-                    double setBudget = parseDouble(userText1.getText());
-                    double setLiving = parseDouble(userText2.getText());
-                    double setGrocery = parseDouble(userText3.getText());
-                    double setRest = parseDouble(userText4.getText());
-                    double setTrans = parseDouble(userText5.getText());
-                    double setEntertainment = parseDouble(userText6.getText());
-                    double setMisc = parseDouble(userText7.getText());
-                    budget.setMonth(setMonth);
-                    monthHere1.setText("Month Name: " + userText.getText());
-                    budget.setBudget(setBudget);
-                    budgetHere1.setText("Budget Amount: $" + setBudget);
-                    budget.setLivingExpenses(setLiving);
-                    livingExpensesHere1.setText("Living Expenses: $" + setLiving);
-                    budget.setGroceries(setGrocery);
-                    groceryExpensesHere1.setText("Grocery Expenses: $" + setGrocery);
-                    budget.setRestaurants(setRest);
-                    restaurantExpensesHere1.setText("Restaurant Expenses: $" + setRest);
-                    budget.setTransportation(setTrans);
-                    transportationExpensesHere1.setText("Transportation Expenses: $" + setTrans);
-                    budget.setEntertainment(setEntertainment);
-                    entertainmentExpensesHere1.setText("Entertainment Expenses: $" + setEntertainment);
-                    budget.setMiscellaneous(setMisc);
-                    additionalExpensesHere1.setText("Additional Expenses: $" + setMisc);
-                    budget.setTotalExpenses();
-                    budget.setBalance();
-                    budget.getBalance();
-                    budget.setBalancePercent();
-                    budget.getBalancePercent();
-                    percentage.setText("Percentage Spent: " + budget.getBalancePercent() + "%");
-                    AudioInputStream audioInput =
-                            AudioSystem.getAudioInputStream(new File(Music_File).getAbsoluteFile());
-                    Clip clip = AudioSystem.getClip();
-                    clip.open(audioInput);
-                    clip.start();
-                    clip.loop(3);
-                    playSound(Music_File);
-                    frame.revalidate();
-                    frame.repaint();
-                    frame.setVisible(true);
+                    gui65();
                 } catch (UnsupportedAudioFileException unsupportedAudioFileException) {
                     unsupportedAudioFileException.printStackTrace();
                 } catch (IOException ioException) {
@@ -317,40 +327,63 @@ public abstract class MyUI implements ActionListener {
                 } catch (LineUnavailableException lineUnavailableException) {
                     lineUnavailableException.printStackTrace();
                 }
-                //System.out.println("Month Entered :" + month);
-
             }
         }
         );
+        gui7();
+    }
+
+    public void gui65() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        budget.setMonth(setMonth);
+        monthHere1.setText("Month Name: " + userText.getText());
+        budget.setBudget(setBudget);
+        budgetHere1.setText("Budget Amount: $" + setBudget);
+        budget.setLivingExpenses(setLiving);
+        livingExpensesHere1.setText("Living Expenses: $" + setLiving);
+        budget.setGroceries(setGrocery);
+        groceryExpensesHere1.setText("Grocery Expenses: $" + setGrocery);
+        budget.setRestaurants(setRest);
+        restaurantExpensesHere1.setText("Restaurant Expenses: $" + setRest);
+        budget.setTransportation(setTrans);
+        transportationExpensesHere1.setText("Transportation Expenses: $" + setTrans);
+        budget.setEntertainment(setEntertainment);
+        entertainmentExpensesHere1.setText("Entertainment Expenses: $" + setEntertainment);
+        budget.setMiscellaneous(setMisc);
+        additionalExpensesHere1.setText("Additional Expenses: $" + setMisc);
+        budget.setTotalExpenses();
+        gui66();
+    }
+
+    public void gui66() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        budget.setBalance();
+        budget.getBalance();
+        budget.setBalancePercent();
+        budget.getBalancePercent();
+        percentage.setText("Percentage Spent: " + budget.getBalancePercent() + "%");
+        AudioInputStream audioInput =
+                AudioSystem.getAudioInputStream(new File(Music_File).getAbsoluteFile());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInput);
+        clip.start();
+        clip.loop(3);
+        playSound(Music_File);
+        frame.revalidate();
+        frame.repaint();
+        frame.setVisible(true);
+    }
+
+    public void gui7() {
         button.setBounds(10, 200, 85, 25);
         panel.add(button);
         button.addActionListener(this);
-
-        JButton save = new JButton(new AbstractAction("Save") {
+        save = new JButton(new AbstractAction("Save") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String setMonth = userText.getText();
-                    double setBudget = parseDouble(userText1.getText());
-                    double setLiving = parseDouble(userText2.getText());
-                    double setGrocery = parseDouble(userText3.getText());
-                    double setRest = parseDouble(userText4.getText());
-                    double setTrans = parseDouble(userText5.getText());
-                    double setEntertainment = parseDouble(userText6.getText());
-                    double setMisc = parseDouble(userText7.getText());
-                    budget.setMonth(setMonth);
-                    budget.setBudget(setBudget);
-                    budget.setLivingExpenses(setLiving);
-                    budget.setGroceries(setGrocery);
-                    budget.setRestaurants(setRest);
-                    budget.setTransportation(setTrans);
-                    budget.setEntertainment(setEntertainment);
-                    budget.setMiscellaneous(setMisc);
-                    budget.setTotalExpenses();
-                    budget.setBalance();
-                    budget.getBalance();
-                    budget.setBalancePercent();
-                    budget.getBalancePercent();
+                    setMonth = userText.getText();
+                    setBudget = parseDouble(userText1.getText());
+                    setLiving = parseDouble(userText2.getText());
+                    gui77();
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
                     budgetLog.add(budget);
@@ -362,40 +395,44 @@ public abstract class MyUI implements ActionListener {
             }
         }
         );
+        gui8();
+    }
+
+    @SuppressWarnings("checkstyle:Indentation")
+    public void gui77() {
+        setGrocery = parseDouble(userText3.getText());
+        setRest = parseDouble(userText4.getText());
+        setTrans = parseDouble(userText5.getText());
+        setEntertainment = parseDouble(userText6.getText());
+        setMisc = parseDouble(userText7.getText());
+
+        budget.setMonth(setMonth);
+        budget.setBudget(setBudget);
+        budget.setLivingExpenses(setLiving);
+        budget.setGroceries(setGrocery);
+        budget.setRestaurants(setRest);
+        budget.setTransportation(setTrans);
+        budget.setEntertainment(setEntertainment);
+        budget.setMiscellaneous(setMisc);
+        budget.setTotalExpenses();
+        budget.setBalance();
+        budget.getBalance();
+        budget.setBalancePercent();
+        budget.getBalancePercent();
+    }
+
+    public void gui8() {
         save.setBounds(100, 200, 85, 25);
         panel.add(save);
         save.addActionListener(this);
 
-        JButton load = new JButton(new AbstractAction("Load") {
+        load = new JButton(new AbstractAction("Load") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    FileInputStream inFile = new FileInputStream(BudgetGui_File);
-                    ObjectInputStream is = new ObjectInputStream(inFile);
-                    ArrayList<Budget> inList = (ArrayList<Budget>) is.readObject();
-                    for (Budget budget2 : inList) {
-                        monthHere1.setText("Month Name: " + budget2.getMonth());
-                        budgetHere1.setText("Budget Amount: $" + budget2.getBudget());
-                        livingExpensesHere1.setText("Living Expenses: $" + budget2.getLivingExpenses());
-                        groceryExpensesHere1.setText("Grocery Expenses: $" + budget2.getGroceries());
-                        restaurantExpensesHere1.setText("Restaurant Expenses: $" + budget2.getRestaurants());
-                        transportationExpensesHere1.setText("Transportation Expenses: $" + budget2.getTransportation());
-                        entertainmentExpensesHere1.setText("Entertainment Expenses: $" + budget2.getEntertainment());
-                        additionalExpensesHere1.setText("Additional Expenses: $" + budget2.getMiscellaneous());
-                        budget2.setTotalExpenses();
-                        budget2.setBalance();
-                        budget2.getBalance();
-                        budget2.setBalancePercent();
-                        budget2.getBalancePercent();
-                        percentage.setText("Percentage Spent: " + budget2.getBalancePercent() + "%");
-                        frame.setVisible(true);
-                    }
-                } catch (FileNotFoundException fileNotFoundException) {
-                    fileNotFoundException.printStackTrace();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
+                    gui88();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
         }
@@ -407,6 +444,29 @@ public abstract class MyUI implements ActionListener {
 
         frame.setTitle("Budget Assistant");
         frame.setVisible(true);
+    }
+
+    public void gui88() throws IOException, ClassNotFoundException {
+        FileInputStream inFile = new FileInputStream(BudgetGui_File);
+        ObjectInputStream is = new ObjectInputStream(inFile);
+        ArrayList<Budget> inList = (ArrayList<Budget>) is.readObject();
+        for (Budget budget2 : inList) {
+            monthHere1.setText("Month Name: " + budget2.getMonth());
+            budgetHere1.setText("Budget Amount: $" + budget2.getBudget());
+            livingExpensesHere1.setText("Living Expenses: $" + budget2.getLivingExpenses());
+            groceryExpensesHere1.setText("Grocery Expenses: $" + budget2.getGroceries());
+            restaurantExpensesHere1.setText("Restaurant Expenses: $" + budget2.getRestaurants());
+            transportationExpensesHere1.setText("Transportation Expenses: $" + budget2.getTransportation());
+            entertainmentExpensesHere1.setText("Entertainment Expenses: $" + budget2.getEntertainment());
+            additionalExpensesHere1.setText("Additional Expenses: $" + budget2.getMiscellaneous());
+            budget2.setTotalExpenses();
+            budget2.setBalance();
+            budget2.getBalance();
+            budget2.setBalancePercent();
+            budget2.getBalancePercent();
+            percentage.setText("Percentage Spent: " + budget2.getBalancePercent() + "%");
+            frame.setVisible(true);
+        }
     }
 
     public double parseDouble(String str) {
