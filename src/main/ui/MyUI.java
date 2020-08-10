@@ -144,7 +144,7 @@ public abstract class MyUI implements ActionListener {
 
     public void gui() {
         this.frame = new JFrame();
-        frame.setSize(1000, 800);
+        frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.panel = new JPanel();
         frame.add(panel);
@@ -176,49 +176,55 @@ public abstract class MyUI implements ActionListener {
         panel.add(restaurantExpensesHere);
 
         JLabel transportationExpensesHere = new JLabel("Enter Transportation Expenses Here");
-        transportationExpensesHere.setBounds(10, 130, 185, 30);
+        transportationExpensesHere.setBounds(10, 130, 215, 30);
         panel.add(transportationExpensesHere);
 
         JLabel entertainmentExpensesHere = new JLabel("Enter Entertainment Expenses Here");
-        entertainmentExpensesHere.setBounds(10, 150, 185, 30);
+        entertainmentExpensesHere.setBounds(10, 150, 215, 30);
         panel.add(entertainmentExpensesHere);
 
         JLabel additionalExpensesHere = new JLabel("Enter Additional Expenses Here");
-        additionalExpensesHere.setBounds(10, 170, 170, 30);
+        additionalExpensesHere.setBounds(10, 170, 215, 30);
         panel.add(additionalExpensesHere);
 
+        JLabel budgetAssistant = new JLabel("Budget Assistant");
+        budgetAssistant.setBounds(10, 180, 1000, 30);
+        budgetAssistant.setSize(600, 250);
+        budgetAssistant.setFont(new Font("Verdana", Font.PLAIN, 45));
+        panel.add(budgetAssistant);
+
         userText = new JTextField(20);
-        userText.setBounds(200, 25, 190, 30);
+        userText.setBounds(230, 25, 190, 30);
         panel.add(userText);
         String setMonth = userText.getText();
 
         userText1 = new JTextField(20);
-        userText1.setBounds(200, 45, 190, 30);
+        userText1.setBounds(230, 45, 190, 30);
         panel.add(userText1);
         double setBudget = parseDouble(userText1.getText());
 
         userText2 = new JTextField(20);
-        userText2.setBounds(200, 65, 190, 30);
+        userText2.setBounds(230, 65, 190, 30);
         panel.add(userText2);
 
 
         userText3 = new JTextField(20);
-        userText3.setBounds(200, 85, 190, 30);
+        userText3.setBounds(230, 85, 190, 30);
         panel.add(userText3);
 
 
         userText4 = new JTextField(20);
-        userText4.setBounds(200, 105, 190, 30);
+        userText4.setBounds(230, 105, 190, 30);
         panel.add(userText4);
 
 
         userText5 = new JTextField(20);
-        userText5.setBounds(200, 125, 190, 30);
+        userText5.setBounds(230, 125, 190, 30);
         panel.add(userText5);
 
 
         userText6 = new JTextField(20);
-        userText6.setBounds(200, 145, 190, 30);
+        userText6.setBounds(230, 145, 190, 30);
         panel.add(userText6);
 /*        double setBudget = parseDouble(userText1.getText());
         double setLiving = parseDouble(userText2.getText());
@@ -228,43 +234,43 @@ public abstract class MyUI implements ActionListener {
         double setEntertainment = parseDouble(userText6.getText());*/
 
         userText7 = new JTextField(20);
-        userText7.setBounds(200, 165, 190, 30);
+        userText7.setBounds(230, 165, 190, 30);
         panel.add(userText7);
 
-        this.monthHere1 = new JLabel("Month: ");
-        this.monthHere1.setBounds(400, 25, 160, 30);
+        this.monthHere1 = new JLabel("Month Name: ");
+        this.monthHere1.setBounds(430, 25, 160, 30);
         panel.add(this.monthHere1);
 
-        JLabel budgetHere1 = new JLabel("Budget: ");
-        budgetHere1.setBounds(400, 50, 160, 30);
+        JLabel budgetHere1 = new JLabel("Budget Amount: $");
+        budgetHere1.setBounds(430, 50, 160, 30);
         panel.add(budgetHere1);
 
-        JLabel livingExpensesHere1 = new JLabel("Living Expenses: ");
-        livingExpensesHere1.setBounds(400, 70, 160, 30);
+        JLabel livingExpensesHere1 = new JLabel("Living Expenses: $");
+        livingExpensesHere1.setBounds(430, 70, 160, 30);
         panel.add(livingExpensesHere1);
 
-        JLabel groceryExpensesHere1 = new JLabel("Grocery Expenses: ");
-        groceryExpensesHere1.setBounds(400, 90, 160, 30);
+        JLabel groceryExpensesHere1 = new JLabel("Grocery Expenses: $");
+        groceryExpensesHere1.setBounds(430, 90, 160, 30);
         panel.add(groceryExpensesHere1);
 
-        JLabel restaurantExpensesHere1 = new JLabel("Restaurant Expenses: ");
-        restaurantExpensesHere1.setBounds(400, 110, 160, 30);
+        JLabel restaurantExpensesHere1 = new JLabel("Restaurant Expenses: $");
+        restaurantExpensesHere1.setBounds(430, 110, 160, 30);
         panel.add(restaurantExpensesHere1);
 
-        JLabel transportationExpensesHere1 = new JLabel("Transportation Expenses: ");
-        transportationExpensesHere1.setBounds(400, 130, 240, 30);
+        JLabel transportationExpensesHere1 = new JLabel("Transportation Expenses: $");
+        transportationExpensesHere1.setBounds(430, 130, 240, 30);
         panel.add(transportationExpensesHere1);
 
-        JLabel entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: ");
-        entertainmentExpensesHere1.setBounds(400, 150, 240, 30);
+        JLabel entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: $");
+        entertainmentExpensesHere1.setBounds(430, 150, 240, 30);
         panel.add(entertainmentExpensesHere1);
 
-        JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: ");
-        additionalExpensesHere1.setBounds(400, 170, 240, 30);
+        JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: $");
+        additionalExpensesHere1.setBounds(430, 170, 240, 30);
         panel.add(additionalExpensesHere1);
 
-        JLabel percentage = new JLabel("Percent: ");
-        percentage.setBounds(400, 190, 240, 30);
+        JLabel percentage = new JLabel("Percent Spent: %");
+        percentage.setBounds(430, 190, 240, 30);
         panel.add(percentage);
 
         JButton button = new JButton(new AbstractAction("Submit") {
@@ -279,21 +285,21 @@ public abstract class MyUI implements ActionListener {
                     double setEntertainment = parseDouble(userText6.getText());
                     double setMisc = parseDouble(userText7.getText());
                     budget.setMonth(setMonth);
-                    monthHere1.setText("Month: " + userText.getText());
+                    monthHere1.setText("Month Name: " + userText.getText());
                     budget.setBudget(setBudget);
-                    budgetHere1.setText("Budget: " + setBudget);
+                    budgetHere1.setText("Budget Amount: $" + setBudget);
                     budget.setLivingExpenses(setLiving);
-                    livingExpensesHere1.setText("Living Expenses: " + setLiving);
+                    livingExpensesHere1.setText("Living Expenses: $" + setLiving);
                     budget.setGroceries(setGrocery);
-                    groceryExpensesHere1.setText("Grocery Expenses: " + setGrocery);
+                    groceryExpensesHere1.setText("Grocery Expenses: $" + setGrocery);
                     budget.setRestaurants(setRest);
-                    restaurantExpensesHere1.setText("Restaurant Expenses: " + setRest);
+                    restaurantExpensesHere1.setText("Restaurant Expenses: $" + setRest);
                     budget.setTransportation(setTrans);
-                    transportationExpensesHere1.setText("Transportation Expenses: " + setTrans);
+                    transportationExpensesHere1.setText("Transportation Expenses: $" + setTrans);
                     budget.setEntertainment(setEntertainment);
-                    entertainmentExpensesHere1.setText("Entertainment Expenses: " + setEntertainment);
+                    entertainmentExpensesHere1.setText("Entertainment Expenses: $" + setEntertainment);
                     budget.setMiscellaneous(setMisc);
-                    additionalExpensesHere1.setText("Additional Expenses: " + setMisc);
+                    additionalExpensesHere1.setText("Additional Expenses: $" + setMisc);
                     budget.setTotalExpenses();
                     budget.setBalance();
                     budget.getBalance();
