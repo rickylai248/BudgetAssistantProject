@@ -338,7 +338,8 @@ public abstract class MyUI implements ActionListener {
                 try {
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
-                    outObject.writeObject(budgetJList);
+                    budgetLog.add(budget);
+                    outObject.writeObject(budgetLog);
                     outObject.close();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -356,10 +357,10 @@ public abstract class MyUI implements ActionListener {
                 try {
                     FileInputStream inFile = new FileInputStream(BudgetGui_File);
                     ObjectInputStream is = new ObjectInputStream(inFile);
-                    JList inList = (JList) is.readObject();
-                    ListModel inModel = inList.getModel();
-                    for (int i = 0; i < inModel.getSize(); i++) {
-                        budgetModel.addElement((Budget) inModel.getElementAt(i));
+                    ArrayList<Budget> inList = (ArrayList<Budget>) is.readObject();
+                    for (Budget budget2 : inList) {
+                        System.out.println(budget2.getMonth());
+                        monthHere1.setText("Month Name: " + budget2.getMonth());
                         frame.setVisible(true);
                     }
                 } catch (FileNotFoundException fileNotFoundException) {
