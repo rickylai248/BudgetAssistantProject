@@ -173,43 +173,57 @@ public abstract class MyUI implements ActionListener {
         JTextField userText = new JTextField(20);
         userText.setBounds(200, 25, 190, 30);
         panel.add(userText);
-        budget.setMonth(userText.toString());
+        String setMonth = userText.getText();
 
         JTextField userText1 = new JTextField(20);
         userText1.setBounds(200, 45, 190, 30);
         panel.add(userText1);
+        String setBudget = userText.getText();
 
         JTextField userText2 = new JTextField(20);
         userText2.setBounds(200, 65, 190, 30);
         panel.add(userText2);
+        String setLiving = userText.getText();
 
         JTextField userText3 = new JTextField(20);
         userText3.setBounds(200, 85, 190, 30);
         panel.add(userText3);
+        String setGrocery = userText.getText();
 
         JTextField userText4 = new JTextField(20);
         userText4.setBounds(200, 105, 190, 30);
         panel.add(userText4);
+        String setRest = userText.getText();
 
         JTextField userText5 = new JTextField(20);
         userText5.setBounds(200, 125, 190, 30);
         panel.add(userText5);
+        String setTrans = userText.getText();
 
         JTextField userText6 = new JTextField(20);
         userText6.setBounds(200, 145, 190, 30);
         panel.add(userText6);
+        String setEntertainment = userText.getText();
 
         JTextField userText7 = new JTextField(20);
         userText7.setBounds(200, 165, 190, 30);
         panel.add(userText7);
+        String setMisc = userText.getText();
 
         JButton button = new JButton(new AbstractAction("Submit") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //InputMethodTextRun monthText = null;
-                //String month = monthText.getText();
                 try {
-                    budget.setMonth(userText.getText());
+                    budget.setMonth(setMonth);
+                    budget.setBudget(parseDouble(setBudget));
+                    budget.setLivingExpenses(parseDouble(setLiving));
+                    budget.setGroceries(parseDouble(setGrocery));
+                    budget.setRestaurants(parseDouble(setRest));
+                    budget.setTransportation(parseDouble(setTrans));
+                    budget.setEntertainment(parseDouble(setEntertainment));
+                    budget.setMiscellaneous(parseDouble(setMisc));
+                    budget.setTotalExpenses();
+                    budget.getBalance();
                     AudioInputStream audioInput =
                             AudioSystem.getAudioInputStream(new File(Music_File).getAbsoluteFile());
                     Clip clip = AudioSystem.getClip();
@@ -290,6 +304,18 @@ public abstract class MyUI implements ActionListener {
 
         frame.setTitle("Budget Assistant");
         frame.setVisible(true);
+    }
+
+    public double parseDouble(String str) {
+        if (str != null && str.length() > 0) {
+            try {
+                return Double.parseDouble(str);
+            } catch (Exception e) {
+                return 0; // wrong value
+            }
+        } else {
+            return 0;
+        }
     }
 
     public static void playSound(String filepath) throws IOException {
