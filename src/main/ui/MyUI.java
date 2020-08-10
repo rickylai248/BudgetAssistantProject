@@ -226,20 +226,14 @@ public abstract class MyUI implements ActionListener {
         userText6 = new JTextField(20);
         userText6.setBounds(230, 145, 190, 30);
         panel.add(userText6);
-/*        double setBudget = parseDouble(userText1.getText());
-        double setLiving = parseDouble(userText2.getText());
-        double setGrocery = parseDouble(userText3.getText());
-        double setRest = parseDouble(userText4.getText());
-        double setTrans = parseDouble(userText5.getText());
-        double setEntertainment = parseDouble(userText6.getText());*/
 
         userText7 = new JTextField(20);
         userText7.setBounds(230, 165, 190, 30);
         panel.add(userText7);
 
-        this.monthHere1 = new JLabel("Month Name: ");
-        this.monthHere1.setBounds(430, 25, 160, 30);
-        panel.add(this.monthHere1);
+        monthHere1 = new JLabel("Month Name: ");
+        monthHere1.setBounds(430, 25, 160, 30);
+        panel.add(monthHere1);
 
         JLabel budgetHere1 = new JLabel("Budget Amount: $");
         budgetHere1.setBounds(430, 50, 160, 30);
@@ -336,6 +330,27 @@ public abstract class MyUI implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    String setMonth = userText.getText();
+                    double setBudget = parseDouble(userText1.getText());
+                    double setLiving = parseDouble(userText2.getText());
+                    double setGrocery = parseDouble(userText3.getText());
+                    double setRest = parseDouble(userText4.getText());
+                    double setTrans = parseDouble(userText5.getText());
+                    double setEntertainment = parseDouble(userText6.getText());
+                    double setMisc = parseDouble(userText7.getText());
+                    budget.setMonth(setMonth);
+                    budget.setBudget(setBudget);
+                    budget.setLivingExpenses(setLiving);
+                    budget.setGroceries(setGrocery);
+                    budget.setRestaurants(setRest);
+                    budget.setTransportation(setTrans);
+                    budget.setEntertainment(setEntertainment);
+                    budget.setMiscellaneous(setMisc);
+                    budget.setTotalExpenses();
+                    budget.setBalance();
+                    budget.getBalance();
+                    budget.setBalancePercent();
+                    budget.getBalancePercent();
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
                     budgetLog.add(budget);
@@ -359,8 +374,20 @@ public abstract class MyUI implements ActionListener {
                     ObjectInputStream is = new ObjectInputStream(inFile);
                     ArrayList<Budget> inList = (ArrayList<Budget>) is.readObject();
                     for (Budget budget2 : inList) {
-                        System.out.println(budget2.getMonth());
                         monthHere1.setText("Month Name: " + budget2.getMonth());
+                        budgetHere1.setText("Budget Amount: $" + budget2.getBudget());
+                        livingExpensesHere1.setText("Living Expenses: $" + budget2.getLivingExpenses());
+                        groceryExpensesHere1.setText("Grocery Expenses: $" + budget2.getGroceries());
+                        restaurantExpensesHere1.setText("Restaurant Expenses: $" + budget2.getRestaurants());
+                        transportationExpensesHere1.setText("Transportation Expenses: $" + budget2.getTransportation());
+                        entertainmentExpensesHere1.setText("Entertainment Expenses: $" + budget2.getEntertainment());
+                        additionalExpensesHere1.setText("Additional Expenses: $" + budget2.getMiscellaneous());
+                        budget2.setTotalExpenses();
+                        budget2.setBalance();
+                        budget2.getBalance();
+                        budget2.setBalancePercent();
+                        budget2.getBalancePercent();
+                        percentage.setText("Percentage Spent: " + budget2.getBalancePercent() + "%");
                         frame.setVisible(true);
                     }
                 } catch (FileNotFoundException fileNotFoundException) {
@@ -387,10 +414,10 @@ public abstract class MyUI implements ActionListener {
             try {
                 return Double.parseDouble(str);
             } catch (Exception e) {
-                return 2; // wrong value
+                return 0; // wrong value
             }
         } else {
-            return 3;
+            return -1;
         }
     }
 
