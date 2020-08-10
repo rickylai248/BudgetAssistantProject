@@ -11,6 +11,7 @@ import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.sound.sampled.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import javafx.scene.input.InputMethodTextRun;
@@ -168,7 +169,7 @@ public abstract class MyUI implements ActionListener {
     // GUI method, split into multiple methods due to checkstyle line constraint
     public void gui() {
         frame = new JFrame();
-        frame.setSize(1000, 600);
+        frame.setSize(900, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         frame.add(panel);
@@ -216,9 +217,9 @@ public abstract class MyUI implements ActionListener {
         panel.add(additionalExpensesHere);
 
         budgetAssistant = new JLabel("Budget Assistant");
-        budgetAssistant.setBounds(10, 180, 1000, 30);
+        budgetAssistant.setBounds(40, 150, 1000, 30);
         budgetAssistant.setSize(600, 250);
-        budgetAssistant.setFont(new Font("Verdana", Font.BOLD, 45));
+        budgetAssistant.setFont(new Font("Courier New", Font.BOLD, 60));
 
         gui3();
     }
@@ -306,6 +307,8 @@ public abstract class MyUI implements ActionListener {
         percentage = new JLabel("Percent Spent: %");
         percentage.setBounds(430, 190, 200, 30);
         panel.add(percentage);
+        percentage.setForeground(Color.GREEN);
+        percentage.setFont(new Font("Verdana", Font.BOLD, 12));
 
         gui6();
     }
