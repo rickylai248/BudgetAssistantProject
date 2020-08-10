@@ -295,10 +295,11 @@ public abstract class MyUI implements ActionListener {
                     budget.setMiscellaneous(setMisc);
                     additionalExpensesHere1.setText("Additional Expenses: " + setMisc);
                     budget.setTotalExpenses();
+                    budget.setBalance();
                     budget.getBalance();
+                    budget.setBalancePercent();
                     budget.getBalancePercent();
-                    budget.getOverBalance();
-                    percentage.setText("Percentage: " + budget.getBalancePercent());
+                    percentage.setText("Percentage Spent: " + budget.getBalancePercent() + "%");
                     AudioInputStream audioInput =
                             AudioSystem.getAudioInputStream(new File(Music_File).getAbsoluteFile());
                     Clip clip = AudioSystem.getClip();
