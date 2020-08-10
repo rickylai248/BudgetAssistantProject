@@ -215,7 +215,7 @@ public abstract class MyUI implements ActionListener {
         budgetAssistant = new JLabel("Budget Assistant");
         budgetAssistant.setBounds(10, 180, 1000, 30);
         budgetAssistant.setSize(600, 250);
-        budgetAssistant.setFont(new Font("Verdana", Font.PLAIN, 45));
+        budgetAssistant.setFont(new Font("Verdana", Font.BOLD, 45));
 
         gui3();
     }
