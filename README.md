@@ -22,16 +22,16 @@ averaging and budget management.
 - Easy frugal / minimalism lifestyle!
 
 ##Instructions for Grader
-You can generate the first required event by typing in the box then clicking submit (a budget).
+You can generate the first required event by typing in the box then clicking submit (a budget). <br>
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
-below).
-You can trigger my audio component by clicking submit at the very end (Windows XP Chime . wav) in addition to viewing a
-screenshot of your created budget when you press "Save" in data (Screenshot.png).
-You can save the state of my application by clicking "Save", also takes a screenshot for you.
+below). <br>
+You can trigger my audio component by clicking submit at the very end (Windows XP Chime.wav played from your media
+player) in addition to viewing a screenshot of your created budget when you press "Save" in data (Screenshot.png). <br>
+You can save the state of my application by clicking "Save", also takes a screenshot for you. <br>
 You can reload the state of my application by "Load".
 
 ##User Stories
-(PREVIOUS)
+(OLD)
 As a user, I want to be able to track my budget by inputting expenses and my monthly allowance <br>
 As a user, I want to be able to input certain expenses and label them accordingly <br>
 As a user, I want to be able to categorize the type of expense and view the overall total cost <br>
