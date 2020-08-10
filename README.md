@@ -24,8 +24,8 @@ averaging and budget management.
 - Easy frugal / minimalism lifestyle!
 
 ##Instructions for Grader
-You can generate the first required event by clicking add (a budget).
-You can generate the second required event by clicking add a budget once again.
+You can generate the first required event by clicking submit (a budget).
+You can generate the second required event by clicking (submit) a budget once again.
 You can trigger my audio component by clicking submit at the very end (Windows XP Chime).
 You can save the state of my application by clicking save.
 You can reload the state of my application by load.

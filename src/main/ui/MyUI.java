@@ -32,6 +32,7 @@ public abstract class MyUI implements ActionListener {
     BudgetList budgetList;
     private JFrame frame;
     private JLabel monthHere1;
+    private JPanel panel;
 
     // EFFECTS: runs the budget assistant application
     public MyUI() throws IOException, ClassNotFoundException {
@@ -137,7 +138,7 @@ public abstract class MyUI implements ActionListener {
         this.frame = new JFrame();
         frame.setSize(1000, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel panel = new JPanel();
+        this.panel = new JPanel();
         frame.add(panel);
 
         panel.setLayout(null);
@@ -256,6 +257,7 @@ public abstract class MyUI implements ActionListener {
                 try {
                     budget.setMonth(setMonth);
                     monthHere1.setText("Month: " + monthEntered);
+                    monthHere1.revalidate();
                     budget.setBudget(parseDouble(setBudget));
                     budget.setLivingExpenses(parseDouble(setLiving));
                     budget.setGroceries(parseDouble(setGrocery));
@@ -272,6 +274,9 @@ public abstract class MyUI implements ActionListener {
                     clip.start();
                     clip.loop(3);
                     playSound(Music_File);
+                    frame.revalidate();
+                    frame.repaint();
+                    frame.setVisible(true);
                 } catch (UnsupportedAudioFileException unsupportedAudioFileException) {
                     unsupportedAudioFileException.printStackTrace();
                 } catch (IOException ioException) {
@@ -316,6 +321,7 @@ public abstract class MyUI implements ActionListener {
                     ListModel inModel = inList.getModel();
                     for (int i = 0; i < inModel.getSize(); i++) {
                         budgetModel.addElement((Budget) inModel.getElementAt(i));
+                        frame.setVisible(true);
                     }
                 } catch (FileNotFoundException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
