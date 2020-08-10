@@ -1,10 +1,10 @@
 package model;
 
-import java.util.LinkedList;
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 
-public class BudgetList {
+public class BudgetList implements Serializable {
     private List<Budget> budgetList;
 
     // EFFECTS: constructs empty list of budgets

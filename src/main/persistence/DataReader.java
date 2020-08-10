@@ -1,6 +1,8 @@
 /*
 package persistence;
 
+import model.Budget;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +16,7 @@ public class DataReader {
 
     // EFFECTS: returns a list of accounts parsed from file; throws
     // IOException if an exception is raised when opening / reading from file
-    public static List<Account> readAccounts(File file) throws IOException {
+    public static List<Budget> readBudgets(File file) throws IOException {
         List<String> fileContent = readFile(file);
         return parseContent(fileContent);
     }
@@ -27,8 +29,8 @@ public class DataReader {
 
     // EFFECTS: returns a list of accounts parsed from list of strings
     // where each string contains data for one account
-    private static List<Account> parseContent(List<String> fileContent) {
-        List<Account> accounts = new ArrayList<>();
+    private static List<Budget> parseContent(List<String> fileContent) {
+        List<Budget> accounts = new ArrayList<>();
 
         for (String line : fileContent) {
             ArrayList<String> lineComponents = splitString(line);
