@@ -233,7 +233,29 @@ public abstract class MyUI implements ActionListener {
         panel.add(button);
         button.addActionListener(this);
 
-        /*String monthEntered = userText.getText();
+        JButton save = new JButton(new AbstractAction("Save") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        }
+        );
+        save.setBounds(100, 200, 85, 25);
+        panel.add(save);
+        save.addActionListener(this);
+
+        JButton load = new JButton(new AbstractAction("Load") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        }
+        );
+        load.setBounds(190, 200, 85, 25);
+        panel.add(load);
+        load.addActionListener(this);
+
+        String monthEntered = userText.getText();
         JLabel monthHere1 = new JLabel("Month: " + monthEntered);
         monthHere1.setBounds(400, 25, 160, 30);
         panel.add(monthHere1);
@@ -264,7 +286,7 @@ public abstract class MyUI implements ActionListener {
 
         JLabel additionalExpensesHere1 = new JLabel("Additional Expenses: ");
         additionalExpensesHere1.setBounds(400, 170, 160, 30);
-        panel.add(additionalExpensesHere1);*/
+        panel.add(additionalExpensesHere1);
 
         frame.setTitle("Budget Assistant");
         frame.setVisible(true);
