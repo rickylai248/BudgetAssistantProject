@@ -2,8 +2,6 @@
 
 ##My Personal Project
 
-
-
 [**Project Proposal**]
 
 The main purpose of this application is to scope and plan out a monthly budget based on a given take-home salary/income
@@ -24,11 +22,13 @@ averaging and budget management.
 - Easy frugal / minimalism lifestyle!
 
 ##Instructions for Grader
-You can generate the first required event by clicking submit (a budget).
-You can generate the second required event by clicking (submit) a budget once again.
-You can trigger my audio component by clicking submit at the very end (Windows XP Chime).
-You can save the state of my application by clicking save.
-You can reload the state of my application by load.
+You can generate the first required event by typing in the box then clicking submit (a budget).
+You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
+below).
+You can trigger my audio component by clicking submit at the very end (Windows XP Chime . wav) in addition to viewing a
+screenshot of your created budget when you press "Save" in data (Screenshot.png).
+You can save the state of my application by clicking "Save", also takes a screenshot for you.
+You can reload the state of my application by "Load".
 
 ##User Stories
 (PREVIOUS)

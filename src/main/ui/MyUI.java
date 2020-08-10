@@ -3,10 +3,12 @@ package ui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.sound.sampled.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +24,7 @@ public abstract class MyUI implements ActionListener {
     ArrayList<Budget> budgetLog = new ArrayList<>();
     private static final String Budget_File = "./data/Budget.txt";
     private static final String BudgetGui_File = "./data/BudgetGui.txt";
+    private static final String Screenshot_File = "./data/Screenshot.png";
     private static final String Music_File = "./data/Chimes.wav";
     private Scanner scanner;
     double value = 0;
@@ -265,15 +268,15 @@ public abstract class MyUI implements ActionListener {
         panel.add(userText7);
 
         monthHere1 = new JLabel("Month Name: ");
-        monthHere1.setBounds(430, 25, 160, 30);
+        monthHere1.setBounds(430, 25, 450, 30);
         panel.add(monthHere1);
 
         budgetHere1 = new JLabel("Budget Amount: $");
-        budgetHere1.setBounds(430, 50, 160, 30);
+        budgetHere1.setBounds(430, 50, 450, 30);
         panel.add(budgetHere1);
 
         livingExpensesHere1 = new JLabel("Living Expenses: $");
-        livingExpensesHere1.setBounds(430, 70, 160, 30);
+        livingExpensesHere1.setBounds(430, 70, 450, 30);
         panel.add(livingExpensesHere1);
 
         gui5();
@@ -281,27 +284,27 @@ public abstract class MyUI implements ActionListener {
 
     public void gui5() {
         groceryExpensesHere1 = new JLabel("Grocery Expenses: $");
-        groceryExpensesHere1.setBounds(430, 90, 160, 30);
+        groceryExpensesHere1.setBounds(430, 90, 450, 30);
         panel.add(groceryExpensesHere1);
 
         restaurantExpensesHere1 = new JLabel("Restaurant Expenses: $");
-        restaurantExpensesHere1.setBounds(430, 110, 160, 30);
+        restaurantExpensesHere1.setBounds(430, 110, 450, 30);
         panel.add(restaurantExpensesHere1);
 
         transportationExpensesHere1 = new JLabel("Transportation Expenses: $");
-        transportationExpensesHere1.setBounds(430, 130, 240, 30);
+        transportationExpensesHere1.setBounds(430, 130, 450, 30);
         panel.add(transportationExpensesHere1);
 
         entertainmentExpensesHere1 = new JLabel("Entertainment Expenses: $");
-        entertainmentExpensesHere1.setBounds(430, 150, 240, 30);
+        entertainmentExpensesHere1.setBounds(430, 150, 450, 30);
         panel.add(entertainmentExpensesHere1);
 
         additionalExpensesHere1 = new JLabel("Additional Expenses: $");
-        additionalExpensesHere1.setBounds(430, 170, 240, 30);
+        additionalExpensesHere1.setBounds(430, 170, 450, 30);
         panel.add(additionalExpensesHere1);
 
         percentage = new JLabel("Percent Spent: %");
-        percentage.setBounds(430, 190, 240, 30);
+        percentage.setBounds(430, 190, 200, 30);
         panel.add(percentage);
 
         gui6();
@@ -382,13 +385,13 @@ public abstract class MyUI implements ActionListener {
                 try {
                     setMonth = userText.getText();
                     setBudget = parseDouble(userText1.getText());
-                    setLiving = parseDouble(userText2.getText());
                     gui77();
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
                     budgetLog.add(budget);
                     outObject.writeObject(budgetLog);
                     outObject.close();
+                    saveImg();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -398,8 +401,16 @@ public abstract class MyUI implements ActionListener {
         gui8();
     }
 
+    public void saveImg() throws IOException {
+        BufferedImage img = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
+        frame.paint(img.getGraphics());
+        File outputFile = new File(Screenshot_File);
+        ImageIO.write(img, "png", outputFile);
+    }
+
     @SuppressWarnings("checkstyle:Indentation")
     public void gui77() {
+        setLiving = parseDouble(userText2.getText());
         setGrocery = parseDouble(userText3.getText());
         setRest = parseDouble(userText4.getText());
         setTrans = parseDouble(userText5.getText());
