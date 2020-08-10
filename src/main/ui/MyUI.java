@@ -25,7 +25,8 @@ public abstract class MyUI implements ActionListener {
     ArrayList<Budget> budgetLog = new ArrayList<>();
     private static final String Budget_File = "./data/Budget.txt";
     private static final String BudgetGui_File = "./data/BudgetGui.txt";
-    private static final String Screenshot_File = "./data/Screenshot.png";
+    private static final String Screenshot_File = "./data/";
+    private static final String Screenshot_File1 = ".png";
     private static final String Music_File = "./data/Chimes.wav";
     private Scanner scanner;
     double value = 0;
@@ -45,6 +46,7 @@ public abstract class MyUI implements ActionListener {
     private JTextField userText5;
     private JTextField userText6;
     private JTextField userText7;
+    private JTextField userText8;
     private JLabel budgetAssistant;
     private JButton save;
     private JButton load;
@@ -216,8 +218,12 @@ public abstract class MyUI implements ActionListener {
         additionalExpensesHere.setBounds(10, 170, 215, 30);
         panel.add(additionalExpensesHere);
 
+        JLabel imageNameHere = new JLabel("Enter Image Name Here");
+        imageNameHere.setBounds(10, 190, 215, 30);
+        panel.add(imageNameHere);
+
         budgetAssistant = new JLabel("Budget Assistant");
-        budgetAssistant.setBounds(40, 150, 1000, 30);
+        budgetAssistant.setBounds(40, 160, 1000, 30);
         budgetAssistant.setSize(600, 250);
         budgetAssistant.setFont(new Font("Courier New", Font.BOLD, 60));
 
@@ -267,6 +273,10 @@ public abstract class MyUI implements ActionListener {
         userText7 = new JTextField(20);
         userText7.setBounds(230, 165, 190, 30);
         panel.add(userText7);
+
+        userText8 = new JTextField(20);
+        userText8.setBounds(230, 185, 190, 30);
+        panel.add(userText8);
 
         monthHere1 = new JLabel("Month Name: ");
         monthHere1.setBounds(430, 25, 450, 30);
@@ -379,7 +389,7 @@ public abstract class MyUI implements ActionListener {
     }
 
     public void gui7() {
-        button.setBounds(10, 200, 85, 25);
+        button.setBounds(10, 220, 85, 25);
         panel.add(button);
         button.addActionListener(this);
         save = new JButton(new AbstractAction("Save") {
@@ -407,7 +417,7 @@ public abstract class MyUI implements ActionListener {
     public void saveImg() throws IOException {
         BufferedImage img = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
         frame.paint(img.getGraphics());
-        File outputFile = new File(Screenshot_File);
+        File outputFile = new File(Screenshot_File + userText8.getText() + Screenshot_File1);
         ImageIO.write(img, "png", outputFile);
     }
 
@@ -436,7 +446,7 @@ public abstract class MyUI implements ActionListener {
     }
 
     public void gui8() {
-        save.setBounds(100, 200, 85, 25);
+        save.setBounds(100, 220, 85, 25);
         panel.add(save);
         save.addActionListener(this);
 
@@ -451,7 +461,7 @@ public abstract class MyUI implements ActionListener {
             }
         }
         );
-        load.setBounds(190, 200, 85, 25);
+        load.setBounds(190, 220, 85, 25);
         panel.add(load);
         load.addActionListener(this);
 
