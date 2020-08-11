@@ -11,10 +11,7 @@ import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.sound.sampled.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
-import javafx.scene.input.InputMethodTextRun;
 import model.Budget;
 import model.BudgetList;
 import sun.audio.AudioPlayer;
@@ -38,15 +35,15 @@ public abstract class MyUI implements ActionListener {
     private JFrame frame;
     private JLabel monthHere1;
     private JPanel panel;
-    private JTextField userText;
-    private JTextField userText1;
-    private JTextField userText2;
-    private JTextField userText3;
-    private JTextField userText4;
-    private JTextField userText5;
-    private JTextField userText6;
-    private JTextField userText7;
-    private JTextField userText8;
+    private JTextField userTextMonth;
+    private JTextField userTextBudget;
+    private JTextField userTextLivingExp;
+    private JTextField userTextGroceryExp;
+    private JTextField userTextRestaExp;
+    private JTextField userTextTransExp;
+    private JTextField userTextEntertExp;
+    private JTextField userTextAdditExp;
+    private JTextField userTextImgName;
     private JLabel budgetAssistant;
     private JButton save;
     private JButton load;
@@ -233,50 +230,50 @@ public abstract class MyUI implements ActionListener {
     public void gui3() {
         panel.add(budgetAssistant);
 
-        userText = new JTextField(20);
-        userText.setBounds(230, 25, 190, 30);
-        panel.add(userText);
-        setMonth = userText.getText();
+        userTextMonth = new JTextField(20);
+        userTextMonth.setBounds(230, 25, 190, 30);
+        panel.add(userTextMonth);
+        setMonth = userTextMonth.getText();
 
-        userText1 = new JTextField(20);
-        userText1.setBounds(230, 45, 190, 30);
-        panel.add(userText1);
-        setBudget = parseDouble(userText1.getText());
+        userTextBudget = new JTextField(20);
+        userTextBudget.setBounds(230, 45, 190, 30);
+        panel.add(userTextBudget);
+        setBudget = parseDouble(userTextBudget.getText());
 
-        userText2 = new JTextField(20);
-        userText2.setBounds(230, 65, 190, 30);
-        panel.add(userText2);
-
-
-        userText3 = new JTextField(20);
-        userText3.setBounds(230, 85, 190, 30);
-        panel.add(userText3);
+        userTextLivingExp = new JTextField(20);
+        userTextLivingExp.setBounds(230, 65, 190, 30);
+        panel.add(userTextLivingExp);
 
 
-        userText4 = new JTextField(20);
-        userText4.setBounds(230, 105, 190, 30);
-        panel.add(userText4);
+        userTextGroceryExp = new JTextField(20);
+        userTextGroceryExp.setBounds(230, 85, 190, 30);
+        panel.add(userTextGroceryExp);
+
+
+        userTextRestaExp = new JTextField(20);
+        userTextRestaExp.setBounds(230, 105, 190, 30);
+        panel.add(userTextRestaExp);
 
         gui4();
     }
 
     public void gui4() {
-        userText5 = new JTextField(20);
-        userText5.setBounds(230, 125, 190, 30);
-        panel.add(userText5);
+        userTextTransExp = new JTextField(20);
+        userTextTransExp.setBounds(230, 125, 190, 30);
+        panel.add(userTextTransExp);
 
 
-        userText6 = new JTextField(20);
-        userText6.setBounds(230, 145, 190, 30);
-        panel.add(userText6);
+        userTextEntertExp = new JTextField(20);
+        userTextEntertExp.setBounds(230, 145, 190, 30);
+        panel.add(userTextEntertExp);
 
-        userText7 = new JTextField(20);
-        userText7.setBounds(230, 165, 190, 30);
-        panel.add(userText7);
+        userTextAdditExp = new JTextField(20);
+        userTextAdditExp.setBounds(230, 165, 190, 30);
+        panel.add(userTextAdditExp);
 
-        userText8 = new JTextField(20);
-        userText8.setBounds(230, 185, 190, 30);
-        panel.add(userText8);
+        userTextImgName = new JTextField(20);
+        userTextImgName.setBounds(230, 185, 190, 30);
+        panel.add(userTextImgName);
 
         monthHere1 = new JLabel("Month Name: ");
         monthHere1.setBounds(430, 25, 450, 30);
@@ -327,13 +324,13 @@ public abstract class MyUI implements ActionListener {
         button = new JButton(new AbstractAction("Submit") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setBudget = parseDouble(userText1.getText());
-                setLiving = parseDouble(userText2.getText());
-                setGrocery = parseDouble(userText3.getText());
-                setRest = parseDouble(userText4.getText());
-                setTrans = parseDouble(userText5.getText());
-                setEntertainment = parseDouble(userText6.getText());
-                setMisc = parseDouble(userText7.getText());
+                setBudget = parseDouble(userTextBudget.getText());
+                setLiving = parseDouble(userTextLivingExp.getText());
+                setGrocery = parseDouble(userTextGroceryExp.getText());
+                setRest = parseDouble(userTextRestaExp.getText());
+                setTrans = parseDouble(userTextTransExp.getText());
+                setEntertainment = parseDouble(userTextEntertExp.getText());
+                setMisc = parseDouble(userTextAdditExp.getText());
                 try {
                     gui65();
                 } catch (UnsupportedAudioFileException unsupportedAudioFileException) {
@@ -351,7 +348,7 @@ public abstract class MyUI implements ActionListener {
 
     public void gui65() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         budget.setMonth(setMonth);
-        monthHere1.setText("Month Name: " + userText.getText());
+        monthHere1.setText("Month Name: " + userTextMonth.getText());
         budget.setBudget(setBudget);
         budgetHere1.setText("Budget Amount: $" + setBudget);
         budget.setLivingExpenses(setLiving);
@@ -396,8 +393,8 @@ public abstract class MyUI implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    setMonth = userText.getText();
-                    setBudget = parseDouble(userText1.getText());
+                    setMonth = userTextMonth.getText();
+                    setBudget = parseDouble(userTextBudget.getText());
                     gui77();
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
@@ -417,18 +414,18 @@ public abstract class MyUI implements ActionListener {
     public void saveImg() throws IOException {
         BufferedImage img = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
         frame.paint(img.getGraphics());
-        File outputFile = new File(Screenshot_File + userText8.getText() + Screenshot_File1);
+        File outputFile = new File(Screenshot_File + userTextImgName.getText() + Screenshot_File1);
         ImageIO.write(img, "png", outputFile);
     }
 
     @SuppressWarnings("checkstyle:Indentation")
     public void gui77() {
-        setLiving = parseDouble(userText2.getText());
-        setGrocery = parseDouble(userText3.getText());
-        setRest = parseDouble(userText4.getText());
-        setTrans = parseDouble(userText5.getText());
-        setEntertainment = parseDouble(userText6.getText());
-        setMisc = parseDouble(userText7.getText());
+        setLiving = parseDouble(userTextLivingExp.getText());
+        setGrocery = parseDouble(userTextGroceryExp.getText());
+        setRest = parseDouble(userTextRestaExp.getText());
+        setTrans = parseDouble(userTextTransExp.getText());
+        setEntertainment = parseDouble(userTextEntertExp.getText());
+        setMisc = parseDouble(userTextAdditExp.getText());
 
         budget.setMonth(setMonth);
         budget.setBudget(setBudget);
