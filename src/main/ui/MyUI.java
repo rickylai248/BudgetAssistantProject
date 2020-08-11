@@ -218,8 +218,8 @@ public abstract class MyUI implements ActionListener {
         additionalExpensesHere.setBounds(10, 170, 215, 30);
         panel.add(additionalExpensesHere);
 
-        JLabel imageNameHere = new JLabel("Enter Image Name Here");
-        imageNameHere.setBounds(10, 190, 215, 30);
+        JLabel imageNameHere = new JLabel("Enter Image Name Here (name.png)");
+        imageNameHere.setBounds(10, 190, 250, 30);
         panel.add(imageNameHere);
 
         budgetAssistant = new JLabel("Budget Assistant");
