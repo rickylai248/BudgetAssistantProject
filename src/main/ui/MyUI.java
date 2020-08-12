@@ -69,7 +69,7 @@ public abstract class MyUI implements ActionListener {
     public MyUI() throws IOException, ClassNotFoundException {
         budgetList = new BudgetList();
         scanner = new Scanner(System.in);
-        gui();
+        guiInitalize();
         runUI();
         ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(Budget_File)));
         out.writeObject(budgetLog);
@@ -166,7 +166,7 @@ public abstract class MyUI implements ActionListener {
     }
 
     // GUI method, split into multiple methods due to checkstyle line constraint
-    public void gui() {
+    public void guiInitalize() {
         frame = new JFrame();
         frame.setSize(900, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -191,10 +191,10 @@ public abstract class MyUI implements ActionListener {
         livingExpensesHere.setBounds(10, 70, 160, 30);
         panel.add(livingExpensesHere);
 
-        gui2();
+        guiInitalize2();
     }
 
-    public void gui2() {
+    public void guiInitalize2() {
         JLabel groceryExpensesHere = new JLabel("Enter Grocery Expenses Here");
         groceryExpensesHere.setBounds(10, 90, 170, 30);
         panel.add(groceryExpensesHere);
@@ -224,10 +224,10 @@ public abstract class MyUI implements ActionListener {
         budgetAssistant.setSize(600, 250);
         budgetAssistant.setFont(new Font("Courier New", Font.BOLD, 60));
 
-        gui3();
+        guiInitalize3();
     }
 
-    public void gui3() {
+    public void guiInitalize3() {
         panel.add(budgetAssistant);
 
         userTextMonth = new JTextField(20);
@@ -254,10 +254,10 @@ public abstract class MyUI implements ActionListener {
         userTextRestaExp.setBounds(230, 105, 190, 30);
         panel.add(userTextRestaExp);
 
-        gui4();
+        guiInitalize4();
     }
 
-    public void gui4() {
+    public void guiInitalize4() {
         userTextTransExp = new JTextField(20);
         userTextTransExp.setBounds(230, 125, 190, 30);
         panel.add(userTextTransExp);
@@ -287,10 +287,10 @@ public abstract class MyUI implements ActionListener {
         livingExpensesHere1.setBounds(430, 70, 450, 30);
         panel.add(livingExpensesHere1);
 
-        gui5();
+        guiInitalize5();
     }
 
-    public void gui5() {
+    public void guiInitalize5() {
         groceryExpensesHere1 = new JLabel("Grocery Expenses: $");
         groceryExpensesHere1.setBounds(430, 90, 450, 30);
         panel.add(groceryExpensesHere1);
@@ -317,10 +317,10 @@ public abstract class MyUI implements ActionListener {
         percentage.setForeground(Color.GREEN);
         percentage.setFont(new Font("Verdana", Font.BOLD, 12));
 
-        gui6();
+        guiSubmitButton();
     }
 
-    public void gui6() {
+    public void guiSubmitButton() {
         button = new JButton(new AbstractAction("Submit") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -332,7 +332,7 @@ public abstract class MyUI implements ActionListener {
                 setEntertainment = parseDouble(userTextEntertExp.getText());
                 setMisc = parseDouble(userTextAdditExp.getText());
                 try {
-                    gui65();
+                    guiSetText();
                 } catch (UnsupportedAudioFileException unsupportedAudioFileException) {
                     unsupportedAudioFileException.printStackTrace();
                 } catch (IOException ioException) {
@@ -343,10 +343,10 @@ public abstract class MyUI implements ActionListener {
             }
         }
         );
-        gui7();
+        guiSaveButton();
     }
 
-    public void gui65() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public void guiSetText() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         budget.setMonth(setMonth);
         monthHere1.setText("Month Name: " + userTextMonth.getText());
         budget.setBudget(setBudget);
@@ -364,10 +364,10 @@ public abstract class MyUI implements ActionListener {
         budget.setMiscellaneous(setMisc);
         additionalExpensesHere1.setText("Additional Expenses: $" + setMisc);
         budget.setTotalExpenses();
-        gui66();
+        guiAudioClip();
     }
 
-    public void gui66() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public void guiAudioClip() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         budget.setBalance();
         budget.getBalance();
         budget.setBalancePercent();
@@ -385,7 +385,7 @@ public abstract class MyUI implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void gui7() {
+    public void guiSaveButton() {
         button.setBounds(10, 220, 85, 25);
         panel.add(button);
         button.addActionListener(this);
@@ -395,7 +395,7 @@ public abstract class MyUI implements ActionListener {
                 try {
                     setMonth = userTextMonth.getText();
                     setBudget = parseDouble(userTextBudget.getText());
-                    gui77();
+                    guiParseDouble();
                     FileOutputStream outFile = new FileOutputStream(BudgetGui_File);
                     ObjectOutputStream outObject = new ObjectOutputStream(outFile);
                     budgetLog.add(budget);
@@ -408,7 +408,7 @@ public abstract class MyUI implements ActionListener {
             }
         }
         );
-        gui8();
+        guiLoadButton();
     }
 
     public void saveImg() throws IOException {
@@ -419,7 +419,7 @@ public abstract class MyUI implements ActionListener {
     }
 
     @SuppressWarnings("checkstyle:Indentation")
-    public void gui77() {
+    public void guiParseDouble() {
         setLiving = parseDouble(userTextLivingExp.getText());
         setGrocery = parseDouble(userTextGroceryExp.getText());
         setRest = parseDouble(userTextRestaExp.getText());
@@ -442,7 +442,7 @@ public abstract class MyUI implements ActionListener {
         budget.getBalancePercent();
     }
 
-    public void gui8() {
+    public void guiLoadButton() {
         save.setBounds(100, 220, 85, 25);
         panel.add(save);
         save.addActionListener(this);
@@ -451,7 +451,7 @@ public abstract class MyUI implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    gui88();
+                    guiSetNewText();
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -467,7 +467,7 @@ public abstract class MyUI implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void gui88() throws IOException, ClassNotFoundException {
+    public void guiSetNewText() throws IOException, ClassNotFoundException {
         FileInputStream inFile = new FileInputStream(BudgetGui_File);
         ObjectInputStream is = new ObjectInputStream(inFile);
         ArrayList<Budget> inList = (ArrayList<Budget>) is.readObject();
