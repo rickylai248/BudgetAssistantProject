@@ -194,6 +194,7 @@ public abstract class MyUI implements ActionListener {
         guiInitalize2();
     }
 
+    // Part two of GUI method, setting up JLabels and adding to panel
     public void guiInitalize2() {
         JLabel groceryExpensesHere = new JLabel("Enter Grocery Expenses Here");
         groceryExpensesHere.setBounds(10, 90, 170, 30);
@@ -227,6 +228,7 @@ public abstract class MyUI implements ActionListener {
         guiInitalize3();
     }
 
+    // Part three of GUI method, setting up TextFields and the getters for these fields
     public void guiInitalize3() {
         panel.add(budgetAssistant);
 
@@ -257,6 +259,7 @@ public abstract class MyUI implements ActionListener {
         guiInitalize4();
     }
 
+    // Part Four of GUI method, labelling those JText Fields
     public void guiInitalize4() {
         userTextTransExp = new JTextField(20);
         userTextTransExp.setBounds(230, 125, 190, 30);
@@ -320,6 +323,7 @@ public abstract class MyUI implements ActionListener {
         guiSubmitButton();
     }
 
+    // Submit button in the GUI, parses text to a double format then setting it to a local variable
     public void guiSubmitButton() {
         button = new JButton(new AbstractAction("Submit") {
             @Override
@@ -346,6 +350,7 @@ public abstract class MyUI implements ActionListener {
         guiSaveButton();
     }
 
+    // With the Submit method, sets new JLabel text with the inputted values
     public void guiSetText() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         budget.setMonth(setMonth);
         monthHere1.setText("Month Name: " + userTextMonth.getText());
@@ -367,6 +372,7 @@ public abstract class MyUI implements ActionListener {
         guiAudioClip();
     }
 
+    // Audio method, called by the Submit button and uses a classic Windows XP Chime tone, repeats 3 times
     public void guiAudioClip() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         budget.setBalance();
         budget.getBalance();
@@ -385,6 +391,7 @@ public abstract class MyUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    // Save budget where we call the screenshot method helper and save the budget
     public void guiSaveButton() {
         button.setBounds(10, 220, 85, 25);
         panel.add(button);
@@ -411,6 +418,7 @@ public abstract class MyUI implements ActionListener {
         guiLoadButton();
     }
 
+    // Saves the opened frame into the data folder (screenshot)
     public void saveImg() throws IOException {
         BufferedImage img = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
         frame.paint(img.getGraphics());
@@ -418,6 +426,7 @@ public abstract class MyUI implements ActionListener {
         ImageIO.write(img, "png", outputFile);
     }
 
+    // Calls parseDouble helper then sets values accordingly in Budget model
     @SuppressWarnings("checkstyle:Indentation")
     public void guiParseDouble() {
         setLiving = parseDouble(userTextLivingExp.getText());
@@ -442,6 +451,7 @@ public abstract class MyUI implements ActionListener {
         budget.getBalancePercent();
     }
 
+    // Load button helper where it loads in a saved Budget and rewrites the Jlabels on the right
     public void guiLoadButton() {
         save.setBounds(100, 220, 85, 25);
         panel.add(save);
@@ -490,6 +500,7 @@ public abstract class MyUI implements ActionListener {
         }
     }
 
+    // Helper for parsing strings into a double format in order to use for our budget model
     public double parseDouble(String str) {
         if (str != null) {
             try {
@@ -502,6 +513,7 @@ public abstract class MyUI implements ActionListener {
         }
     }
 
+    // Part two of our audio helper, starts the audio after getting it from filepath
     public static void playSound(String filepath) throws IOException {
         InputStream music;
         music = new FileInputStream(new File(filepath));

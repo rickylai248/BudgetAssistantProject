@@ -136,4 +136,35 @@ class BudgetTest {
         april.overBudget();
         assertEquals(false, april.getOverBalance());
     }
+
+    @Test
+    void testIsValidPercent() throws Exception {
+        // expecting percentValid to be true, and no exceptions thrown
+        Budget test1 = new Budget("test1", 500);
+        test1.setMiscellaneous(1);
+        test1.setTotalExpenses();
+        test1.setBalance();
+        test1.setBalancePercent();
+        try {
+            assertEquals(test1.validPercent(), true);
+        } catch (Exception e) {
+            fail("Got invalid percent when shouldn't have");
+        }
+    }
+
+    @Test
+    void testNotValidPercent() throws Exception {
+        // expecting percentValid to be false, and exception to be thrown
+        Budget test1 = new Budget("test1", 500);
+        test1.setMiscellaneous(0);
+        test1.setTotalExpenses();
+        test1.setBalance();
+        test1.setBalancePercent();
+        try {
+            assertEquals(test1.validPercent(), false);
+        } catch (Exception e) {
+            // Got exception for invalid percentage
+            // don't have to do anything here
+        }
+    }
 }

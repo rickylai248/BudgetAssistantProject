@@ -188,6 +188,17 @@ public class Budget implements Serializable {
         System.out.println("Miscellaneous Expenses: $" + getMiscellaneous());
         System.out.println("- End -");
     }
+
+    // REQUIRES: percent spent to be non-infinity / undefined
+    public boolean validPercent() throws Exception {
+        boolean percentValid;
+        if (getTotalExpenses() == 0) {
+            throw new Exception("Total expenses cannot be zero!");
+        } else {
+            percentValid = true;
+        }
+        return percentValid;
+    }
 //STUBS
     /*
      * REQUIRES: month has a non-zero length

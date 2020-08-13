@@ -43,3 +43,13 @@ As a user, I want to be able to easily open up a saved budget file <br>
 As a user, I want to be able to download my inputted expenses and earnings report <br>
 
 As a user, I want to be able to visualize my expenses with colour and imagery <br>
+
+##Phase 4: Task 2
+Decided to test the robustness of my Budget class/model and added a method called ValidPercent to see if my final value
+for the percentage spent would be undefined (e.g. throws exception and boolean valid percent becomes false) and added
+two tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the robustness of my Java
+project.
+##Phase 4: Task 3
+Identifying major/minor issues such as ... and refactored accordingly (e.g.) ... add a description of the changes that
+ you have made to improve the design of your code <br>
+e.g. UML_Design_Diagram.pdf in root
