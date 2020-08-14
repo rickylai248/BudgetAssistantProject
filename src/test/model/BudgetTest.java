@@ -153,10 +153,26 @@ class BudgetTest {
     }
 
     @Test
-    void testNotValidPercent() throws IllegalArgumentException {
-        // expecting percentValid to be false, and exception to be thrown
+    void testExpenseNotZeroValidPercent() throws IllegalArgumentException {
+        // expecting percentValid to be false when expenses are zero, and IllegalArgumentException to be thrown
         Budget test1 = new Budget("test1", 500);
         test1.setMiscellaneous(0);
+        test1.setTotalExpenses();
+        test1.setBalance();
+        test1.setBalancePercent();
+        try {
+            assertEquals(test1.validPercent(), false);
+        } catch (IllegalArgumentException e) {
+            // Got exception for invalid percentage
+            // don't have to do anything here
+        }
+    }
+
+    @Test
+    void testBudgetNotZeroValidPercent() throws IllegalArgumentException {
+        // expecting percentValid to be false when budget is zero, and IllegalArgumentException to be thrown
+        Budget test1 = new Budget("test1", 0);
+        test1.setMiscellaneous(10);
         test1.setTotalExpenses();
         test1.setBalance();
         test1.setBalancePercent();
