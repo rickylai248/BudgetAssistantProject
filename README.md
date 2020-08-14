@@ -45,7 +45,7 @@ As a user, I want to be able to visualize my expenses with colour and imagery <b
 ##Phase 4: Task 2
 Decided to test the robustness of my Budget class/model and added a method called ValidPercent to see if my final value
 for the percentage spent would be undefined (e.g. throws IllegalArgumentException and boolean valid percent becomes
-false) and added two tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the
+false) and added three tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the
 robustness of my Java personal project alongside other exception management in my UI and main classes like file reader
 and potential missing class methods in accordance to the input requirements.
 ##Phase 4: Task 3
@@ -53,8 +53,9 @@ Identifying major/minor issues such as the double-edged sword where there was bo
 one of my classes where I took measures to isolate the specified tasks from my project (e.g. Console UI) and
 separated it into a different, new class where I could easily call on it with a (new ConsoleUI()) line, helping
 differentiate and allocate tasks to classes rather than having it all in one. A much better point of design
-especially when other people are viewing this project in addition to other numerous minor changes such as the
-refactoring, separation and cohesion work of the project as to delegate meaningful tasks to each class respectively
-(e.g. new GUI class to manage my Swing portion of the project with minor refactoring such as the extraction of
- the audio play, double parse, and JLabel text overwriting method in order to reduce redundant code throughout the
-project in order to keep everything tidy and readable/understandable alongside other fixes in the Budget model)
+especially when other people are viewing this project in addition to other numerous changes such as the refactoring, 
+separation and cohesion work of the project as to delegate meaningful tasks to each class respectively (e.g. then
+solved other problems with a new GUI class to manage my Swing portion of the project with minor refactoring such as
+the extraction of the audio play, double parse helper method, and JLabel text overwriting method in order to reduce 
+redundant code throughout the project in order to keep everything tidy and readable/understandable alongside other
+fixes in the Budget model).
