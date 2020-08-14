@@ -1,8 +1,5 @@
 package model;
 
-import ui.MyUI;
-
-import java.io.PrintWriter;
 import java.io.Serializable;
 
 public class Budget implements Serializable {
@@ -189,16 +186,17 @@ public class Budget implements Serializable {
         System.out.println("- End -");
     }
 
-    // REQUIRES: percent spent to be non-infinity / undefined
-    public boolean validPercent() throws Exception {
-        boolean percentValid;
+    // REQUIRES: percent spent to be non-zero / undefined
+    public boolean validPercent() throws IllegalArgumentException {
         if (getTotalExpenses() == 0) {
-            throw new Exception("Total expenses cannot be zero!");
+            throw new IllegalArgumentException("Total expenses cannot be zero!");
+        } else if (getBudget() == 0) {
+            throw new IllegalArgumentException("Total budget cannot be zero!");
         } else {
-            percentValid = true;
+            return true;
         }
-        return percentValid;
     }
+
 //STUBS
     /*
      * REQUIRES: month has a non-zero length

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        new MyUI() {
+        new GUI() {
             @Override
             public void actionPerformed(ActionEvent e) {
 

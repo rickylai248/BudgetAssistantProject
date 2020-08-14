@@ -36,20 +36,25 @@ As a user, I want to be able to track my budget by inputting expenses and my mon
 As a user, I want to be able to input certain expenses and label them accordingly <br>
 As a user, I want to be able to categorize the type of expense and view the overall total cost <br>
 As a user, I want to be able to see the difference between my salary and expenses, in numerical and percentage form <br>
-
 As a user, I want to be able to print/download my imported expenses and earnings report <br>
 As a user, I want to be able to save my budget list file <br>
 As a user, I want to be able to easily open up a saved budget file <br>
 As a user, I want to be able to download my inputted expenses and earnings report <br>
-
 As a user, I want to be able to visualize my expenses with colour and imagery <br>
 
 ##Phase 4: Task 2
 Decided to test the robustness of my Budget class/model and added a method called ValidPercent to see if my final value
-for the percentage spent would be undefined (e.g. throws exception and boolean valid percent becomes false) and added
-two tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the robustness of my Java
-project.
+for the percentage spent would be undefined (e.g. throws IllegalArgumentException and boolean valid percent becomes
+false) and added two tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the
+robustness of my Java personal project alongside other exception management in my UI and main classes like file reader
+and potential missing class methods in accordance to the input requirements.
 ##Phase 4: Task 3
-Identifying major/minor issues such as ... and refactored accordingly (e.g.) ... add a description of the changes that
- you have made to improve the design of your code <br>
-e.g. UML_Design_Diagram.pdf in root
+Identifying major/minor issues such as the double-edged sword where there was both high coupling and poor cohesion in
+one of my classes where I took measures to isolate the specified tasks from my project (e.g. Console UI) and
+separated it into a different, new class where I could easily call on it with a (new ConsoleUI()) line, helping
+differentiate and allocate tasks to classes rather than having it all in one. A much better point of design
+especially when other people are viewing this project in addition to other numerous minor changes such as the
+refactoring, separation and cohesion work of the project as to delegate meaningful tasks to each class respectively
+(e.g. new GUI class to manage my Swing portion of the project with minor refactoring such as the extraction of
+ the audio play, double parse, and JLabel text overwriting method in order to reduce redundant code throughout the
+project in order to keep everything tidy and readable/understandable alongside other fixes in the Budget model)
