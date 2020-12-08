@@ -21,7 +21,6 @@ averaging and budget management.
 - For people of all ages regardless of experience
 - Easy frugal / minimalism lifestyle!
 
-##Instructions for Grader
 You can generate the first required event by typing in the box then clicking submit (a budget). <br>
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
 below for screen shot). <br>
@@ -42,13 +41,12 @@ As a user, I want to be able to easily open up a saved budget file <br>
 As a user, I want to be able to download my inputted expenses and earnings report <br>
 As a user, I want to be able to visualize my expenses with colour and imagery <br>
 
-##Phase 4: Task 2
 Decided to test the robustness of my Budget class/model and added a method called ValidPercent to see if my final value
 for the percentage spent would be undefined (e.g. throws IllegalArgumentException and boolean valid percent becomes
 false) and added three tests accordingly in BudgetTest to test the cases where it isn't and is thrown, adding to the
 robustness of my Java personal project alongside other exception management in my UI and main classes like file reader
 and potential missing class methods in accordance to the input requirements.
-##Phase 4: Task 3
+
 Identifying major/minor issues such as the double-edged sword where there was both high coupling and poor cohesion in
 one of my classes where I took measures to isolate the specified tasks from my project (e.g. Console UI) and
 separated it into a different, new class where I could easily call on it with a (new ConsoleUI()) line, helping
