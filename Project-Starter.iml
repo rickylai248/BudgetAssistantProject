@@ -5,6 +5,7 @@
       <map />
     </option>
   </component>
+  <component name="ExternalSystem" linkedProjectPath="$MODULE_DIR$/../RemoveDuplicateArray/src" rootProjectPath="$MODULE_DIR$/../RemoveDuplicateArray/src" />
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
