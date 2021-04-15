@@ -7,7 +7,7 @@
 The main purpose of this application is to scope and plan out a monthly budget based on a given take-home salary/income
 and to insert any expenses e.g. titled Rent $1000, then it can even categorize these expenses (e.g. essential living)
 and represent the monthly savings (or debt) visually alongside a percentage saved since the objective is to manage
-money better. 
+money better. (Java GUI, CSS)
 
 This is of use to anyone, but it's extremely helpful as a quick and easy tool for people of all ages
 regardless of their experience of technology/computers to calculate their average expenses and cut down on anything.
