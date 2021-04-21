@@ -24,6 +24,10 @@ averaging and budget management.
 - For people of all ages regardless of experience
 - Easy frugal / minimalism lifestyle!
 
+
+#
+#
+#
 You can generate the first required event by typing in the box then clicking submit (a budget). <br>
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
 below for screen shot). <br>
