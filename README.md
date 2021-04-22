@@ -1,4 +1,4 @@
-# Financial Budget Assistant
+# Financial Budget Assistant // My Finance Buddy
 
 ##My Personal Project
 
