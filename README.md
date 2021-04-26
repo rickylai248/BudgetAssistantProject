@@ -15,9 +15,9 @@ I've always been in
 terested in living a frugal / minimalist lifestyle alongside finance so this will benefit me in cost 
 averaging and budget management. 
 
-
-
-
+#
+#
+#
 
 **Begin Now For a Brighter Future!:**
 - Quick and easy tool to calculate average expenses
@@ -28,6 +28,14 @@ averaging and budget management.
 #
 #
 #
+#
+#
+#
+
+
+
+
+
 You can generate the first required event by typing in the box then clicking submit (a budget). <br>
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
 below for screen shot). <br>
