@@ -1,9 +1,5 @@
 # Financial Budget Assistant // My Finance Buddy
 
-##My Personal Project
-
-[**Project Proposal**]
-
 The main purpose of this application is to scope and plan out a monthly budget based on a given take-home salary/income
 and to insert any expenses e.g. titled Rent $1000, then it can even categorize these expenses (e.g. essential living)
 and represent the monthly savings (or debt) visually alongside a percentage saved since the objective is to manage
@@ -34,7 +30,7 @@ averaging and budget management.
 
 
 
-
+[**Project Elements**]
 
 You can generate the first required event by typing in the box then clicking submit (a budget). <br>
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
