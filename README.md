@@ -10,9 +10,6 @@ regardless of their experience of technology/computers to calculate their averag
 I've always been in
 terested in living a frugal / minimalist lifestyle alongside finance so this will benefit me in cost 
 averaging and budget management. 
-
-#
-#
 #
 
 **Begin Now For a Brighter Future!:**
@@ -22,11 +19,8 @@ averaging and budget management.
 
 
 #
-#
-#
-#
-#
-#
+
+
 
 
 
