@@ -23,7 +23,6 @@ averaging and budget management.
 
 
 
-My Finance Buddy
 
 [**Project Elements**]
 
