@@ -20,7 +20,7 @@ averaging and budget management.
 
 
 
-
+<br>
 [**Project Elements**]
 
 You can generate the first required event by typing in the box then clicking submit (a budget). <br>
