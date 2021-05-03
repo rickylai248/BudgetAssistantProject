@@ -16,7 +16,6 @@ averaging and budget management.
 - Quick and easy tool to calculate average expenses
 - For people of all ages regardless of experience
 - Easy frugal / minimalism lifestyle!
-
 #
 
 
