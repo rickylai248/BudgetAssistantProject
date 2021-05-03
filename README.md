@@ -12,7 +12,7 @@ regardless of their experience of technology/computers to calculate their averag
 I've always been interested in living a frugal / minimalist lifestyle alongside finance so this will benefit me in cost 
 averaging and budget management. 
 #
-**Begin Now For a Brighter Future!:**
+**Begin Now For a Brighter Future!**
 - Quick and easy tool to calculate average expenses
 - For people of all ages regardless of experience
 - Easy frugal / minimalism lifestyle!
