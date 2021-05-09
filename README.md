@@ -1,4 +1,4 @@
-# Financial Budget Assistant
+# Financial Budget Assistant (Java)
 
 The main purpose of this application is to scope and plan out a monthly budget based on a given take-home salary/income
 and to insert any expenses e.g. titled Rent $1000, then it can even categorize these expenses (e.g. essential living)
