@@ -30,4 +30,3 @@ You can trigger my audio component by clicking submit at the very end (Windows X
 player) in addition to viewing a screenshot of your created budget when you press "Save" in data (e.g. name.png).
 You can save the state of my application by clicking "Save", also takes a screenshot for you.
 You can reload the state of my application by "Load".
-
