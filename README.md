@@ -29,4 +29,4 @@ Trigger my audio component by clicking submit at the very end (Windows XP Chime.
 player) 
 View a screenshot of your created budget when you press "Save" in data (e.g. name.png).
 Save the state of my application by clicking "Save", also takes a screenshot for you.
-You can reload the state of my application by "Load".
+Reload the state of my application by "Load".
