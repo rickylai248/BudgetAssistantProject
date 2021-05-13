@@ -14,7 +14,7 @@ averaging and budget management.
 **Begin Now For a Brighter Future!**
 - Quick and easy tool to calculate average expenses
 - For people of all ages regardless of experience
-- Frugal / minimalism lifestyle!
+- Frugal / minimalism!
 #
 
 
