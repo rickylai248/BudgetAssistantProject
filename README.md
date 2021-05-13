@@ -23,7 +23,7 @@ averaging and budget management.
 
 *Project Elements*
 
-You can generate the first required event by typing in the box then clicking submit (a budget).
+Clicking submit (a budget).
 You can generate the second required event by typing in the box then clicking (submit) a budget once again (also see
 below for screen shot).
 You can trigger my audio component by clicking submit at the very end (Windows XP Chime.wav played from your media
