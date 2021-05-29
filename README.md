@@ -2,7 +2,7 @@
 
 The main purpose of this application is to scope and plan out a monthly budget based on a given take-home salary/income
 and to insert any expenses e.g. titled Rent $1000, then it can even categorize these expenses (e.g. essential living)
-and represent the monthly savings (or debt) visually alongside percentage saved!!
+and represent the monthly savings (or debt) visually alongside percentage saved!
 
 ![image](https://img.huffingtonpost.com/asset/5d8bf2c91e000058007256ab.jpeg?ops=scalefit_720_noupscale)
 
