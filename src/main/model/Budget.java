@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class Budget implements Serializable {
-    private String month;
+    private String month; // Budget Class Global Variables for each budget
     private double livingExpenses;
     private double groceries;
     private double restaurants;
