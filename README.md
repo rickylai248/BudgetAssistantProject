@@ -9,7 +9,7 @@ and represent the monthly savings (or debt) visually alongside percentage saved.
 This is of use to anyone, but it's extremely helpful as a quick and easy tool for people of all ages
 regardless of their experience of technology/computers to calculate their average expenses and cut down on anything.
 I've always been interested in living a frugal / minimalist lifestyle alongside finance so this will benefit me in cost 
-averaging and budget management. 
+averaging and budget management.  
 #
 **Begin Now For a Brighter Future!**
 - Quick and easy tool to calculate average expenses
