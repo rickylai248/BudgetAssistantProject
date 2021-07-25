@@ -18,7 +18,7 @@ averaging and budget management.
 #
 
 
- 
+  
 *Project Elements*
 
 Clicking submit (a budget).
