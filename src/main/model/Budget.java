@@ -13,8 +13,8 @@ public class Budget implements Serializable {
     private double budget;
     private double totalExpenses;
     private double balance;
-    private boolean overBalance;
     private double balancePercent;
+    private boolean overBalance;
 
     // REQUIRES: month has a non-zero length
     // EFFECTS: constructs a monthly budget with given month name and budget amount
